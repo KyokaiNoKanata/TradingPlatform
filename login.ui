@@ -75,5 +75,42 @@
  <resources>
   <include location="login.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>loginButton</sender>
+   <signal>clicked()</signal>
+   <receiver>loginClass</receiver>
+   <slot>onLoginButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>142</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>227</x>
+     <y>95</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>registerButton</sender>
+   <signal>clicked()</signal>
+   <receiver>loginClass</receiver>
+   <slot>onRegisterButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>55</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>87</x>
+     <y>121</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onLoginButtonClicked()</slot>
+  <slot>onRegisterButtonClicked()</slot>
+ </slots>
 </ui>
