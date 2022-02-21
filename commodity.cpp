@@ -1,6 +1,17 @@
 #include "commodity.h"
 
-commodity::commodity(QString ID, QString name, QString price, QString quantity, QString information, QString sellerID, QString shelfTime, int status)
+commodity::commodity(QStringList qsl)
+{
+	this->ID = qsl[0];
+	this->name = qsl[1];
+	this->quantity = qsl[2].toInt();
+	this->information = qsl[3];
+	this->sellerID = qsl[4];
+	this->shelfTime = qsl[5];
+	this->status = qsl[6].toInt();
+}
+
+commodity::commodity(QString ID, QString name, QString price, int quantity, QString information, QString sellerID, QString shelfTime, int status)
 {
 	this->ID = ID;
 	this->name = name;
@@ -11,7 +22,7 @@ commodity::commodity(QString ID, QString name, QString price, QString quantity, 
 	this->status = status;
 }
 
-bool commodity::operator<(commodity b)
+bool commodity::operator<(commodity b)const
 {
 	return this->ID < b.ID;
 }

@@ -22,8 +22,8 @@ void userManager::readFile()
 		qs = qts.readLine();
 		qsl = qs.split(",");
 		user u(qsl);
-		userData.insert(u);
-		keyring[u.username] = u.password;
+		this->data.insert(u);
+		this->keyring[u.username] = u.password;
 	}
 	qf.close();
 }
@@ -34,5 +34,5 @@ void userManager::writeFile()
 
 bool userManager::checkPassword(QString username, QString password)
 {
-	return keyring[username] == password;
+	return this->keyring[username] == password;
 }

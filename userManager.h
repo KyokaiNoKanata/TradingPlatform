@@ -16,7 +16,7 @@ public:
 	bool checkPassword(QString username, QString password);
 
 private:
-	std::set<user>userData;
+	std::set<user>data;
 	std::map<QString, QString>keyring;
 };
 
