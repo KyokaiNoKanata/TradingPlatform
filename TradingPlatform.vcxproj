@@ -85,20 +85,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="adminWindow.cpp" />
     <ClCompile Include="commodity.cpp" />
     <ClCompile Include="commodityManager.cpp" />
+    <ClCompile Include="order.cpp" />
     <ClCompile Include="orderManager.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="userManager.cpp" />
     <QtRcc Include="login.qrc" />
+    <QtUic Include="adminWindow.ui" />
     <QtUic Include="login.ui" />
     <QtMoc Include="login.h" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="adminWindow.h" />
     <ClInclude Include="commodity.h" />
     <ClInclude Include="commodityManager.h" />
+    <ClInclude Include="order.h" />
     <ClInclude Include="orderManager.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="userManager.h" />

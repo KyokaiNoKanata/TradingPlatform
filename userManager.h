@@ -9,8 +9,11 @@
 class userManager
 {
 public:
+	userManager();
+	~userManager();
 	void readFile();
 	void writeFile();
+	bool checkPassword(QString username, QString password);
 
 private:
 	std::set<user>userData;

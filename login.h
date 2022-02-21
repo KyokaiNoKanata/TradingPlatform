@@ -1,7 +1,9 @@
 #pragma once
 
-#include <QtWidgets/QMainWindow>
+#include<QtWidgets/QMainWindow>
+#include<QMessageBox>
 #include "ui_login.h"
+#include "adminWindow.h"
 #include "userManager.h"
 
 class login :public QMainWindow
@@ -18,4 +20,6 @@ public slots:
 private:
 	Ui::loginClass ui;
 	userManager um;
+	bool adminLogin();
+	bool userLogin();
 };
