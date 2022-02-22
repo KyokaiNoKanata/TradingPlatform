@@ -2,12 +2,12 @@
 
 login::login(QWidget* parent) :QMainWindow(parent)
 {
-	this->um.readFile();
 	this->ui.setupUi(this);
 }
 
 void login::onLoginButtonClicked()
 {
+	this->um.readFile();
 	if (this->ui.usernameLineEdit->text().isEmpty())
 	{
 		QMessageBox::information(nullptr, "Login Failed", "Please Enter Username");
@@ -52,6 +52,8 @@ void login::onLoginButtonClicked()
 
 void login::onRegisterButtonClicked()
 {
+	auto* rw = new registerWindow();
+	rw->show();
 }
 
 bool login::adminLogin()

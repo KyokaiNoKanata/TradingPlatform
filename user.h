@@ -1,7 +1,10 @@
 #pragma once
 
-#include<QString>
-#include<QStringList>
+#include <QString>
+#include <QStringList>
+
+#define NORMAL 0
+#define BANNED 1
 
 class user
 {
@@ -14,7 +17,7 @@ public:
 	QString contact;
 	QString address;
 	double balance;
-	int status;
+	bool status;
 	bool operator<(const user& b)const;
 };
 

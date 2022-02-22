@@ -1,7 +1,7 @@
 #pragma once
 
-#include<QString>
-#include<QStringList>
+#include <QString>
+#include <QStringList>
 
 class commodity
 {

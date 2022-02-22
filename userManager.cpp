@@ -32,6 +32,10 @@ void userManager::writeFile()
 {
 }
 
+bool userManager::userRegister(QString username, QString password, QString contact, QString address)
+{
+}
+
 bool userManager::checkPassword(QString username, QString password)
 {
 	return this->keyring[username] == password;

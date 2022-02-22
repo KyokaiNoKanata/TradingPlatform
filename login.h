@@ -1,9 +1,10 @@
 #pragma once
 
-#include<QtWidgets/QMainWindow>
-#include<QMessageBox>
+#include <QtWidgets/QMainWindow>
+#include <QMessageBox>
 #include "ui_login.h"
 #include "adminWindow.h"
+#include "registerWindow.h"
 #include "userManager.h"
 
 class login :public QMainWindow

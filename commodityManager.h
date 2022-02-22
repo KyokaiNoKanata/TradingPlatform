@@ -1,8 +1,8 @@
 #pragma once
 
-#include<set>
-#include<QFile>
-#include<QTextStream>
+#include <set>
+#include <QFile>
+#include <QTextStream>
 #include "commodity.h"
 
 class commodityManager

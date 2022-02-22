@@ -102,6 +102,14 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>usernameLineEdit</tabstop>
+  <tabstop>passwordLineEdit</tabstop>
+  <tabstop>adminModeRadioButton</tabstop>
+  <tabstop>userModeRadioButton</tabstop>
+  <tabstop>loginButton</tabstop>
+  <tabstop>registerButton</tabstop>
+ </tabstops>
  <resources>
   <include location="login.qrc"/>
  </resources>

@@ -1,8 +1,8 @@
 #pragma once
 
-#include<vector>
-#include<QFile>
-#include<QTextStream>
+#include <vector>
+#include <QFile>
+#include <QTextStream>
 #include "order.h"
 
 class orderManager
