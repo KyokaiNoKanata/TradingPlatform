@@ -61,6 +61,9 @@
     <ClCompile Include="order.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="registerWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="userManager.h">
@@ -86,9 +89,15 @@
     <QtMoc Include="adminWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="registerWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="adminWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="registerWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

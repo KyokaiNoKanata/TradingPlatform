@@ -90,6 +90,7 @@
     <ClCompile Include="commodityManager.cpp" />
     <ClCompile Include="order.cpp" />
     <ClCompile Include="orderManager.cpp" />
+    <ClCompile Include="registerWindow.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="userManager.cpp" />
     <QtRcc Include="login.qrc" />
@@ -98,6 +99,7 @@
     <QtMoc Include="login.h" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="registerWindow.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="adminWindow.h" />
@@ -105,6 +107,7 @@
     <ClInclude Include="commodityManager.h" />
     <ClInclude Include="order.h" />
     <ClInclude Include="orderManager.h" />
+    <QtMoc Include="registerWindow.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="userManager.h" />
   </ItemGroup>
