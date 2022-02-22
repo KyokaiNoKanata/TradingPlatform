@@ -58,6 +58,7 @@ void registerWindow::onRegisterButtonClicked()
 	}
 	else
 	{
+
 		um.readFile();
 		if (um.userRegister(username, password, contact, address))
 		{
