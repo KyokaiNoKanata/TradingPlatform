@@ -2,6 +2,7 @@
 
 #include <QMainWindow>
 #include "ui_adminWindow.h"
+#include "userManager.h"
 
 class adminWindow :public QMainWindow
 {
@@ -13,4 +14,5 @@ public:
 
 private:
 	Ui::adminWindow ui;
+	userManager um;
 };

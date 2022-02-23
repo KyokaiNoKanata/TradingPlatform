@@ -22,7 +22,7 @@ void orderManager::readFile()
 		qs = qts.readLine();
 		qsl = qs.split(",");
 		order o(qsl);
-		this->data.push_back(o);
+		data.push_back(o);
 	}
 	qf.close();
 }

@@ -58,7 +58,6 @@ void registerWindow::onRegisterButtonClicked()
 	}
 	else
 	{
-		um.readFile();
 		if (um.userRegister(username, password, contact, address))
 		{
 			QMessageBox::information(nullptr, "info", "Register Success");
@@ -67,6 +66,5 @@ void registerWindow::onRegisterButtonClicked()
 		{
 			QMessageBox::information(nullptr, "Register Failed", "Username Already Exists");
 		}
-		um.writeFile();
 	}
 }

@@ -2,7 +2,7 @@
 
 calculatorWindow::calculatorWindow(QWidget* parent) :QWidget(parent)
 {
-	this->ui.setupUi(this);
+	ui.setupUi(this);
 }
 
 calculatorWindow::~calculatorWindow()
@@ -11,5 +11,5 @@ calculatorWindow::~calculatorWindow()
 
 void calculatorWindow::onCalculateButtonClicked()
 {
-	this->ui.outputLineEdit->setText(c.calculate(this->ui.inputLineEdit->text()));
+	ui.outputLineEdit->setText(c.calculate(ui.inputLineEdit->text()));
 }

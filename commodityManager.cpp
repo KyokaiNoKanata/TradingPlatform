@@ -22,7 +22,7 @@ void commodityManager::readFile()
 		qs = qts.readLine();
 		qsl = qs.split(",");
 		commodity c(qsl);
-		this->data.insert(c);
+		data.insert(c);
 	}
 	qf.close();
 }

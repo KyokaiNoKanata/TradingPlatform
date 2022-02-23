@@ -2,6 +2,7 @@
 
 userManager::userManager()
 {
+	readFile();
 }
 
 userManager::~userManager()
@@ -45,10 +46,12 @@ bool userManager::userRegister(QString username, QString password, QString conta
 	user u(ID, username, password, contact, address, 0, user::NORMAL);
 	data.insert(u);
 	keyring[u.username] = u.password;
+	writeFile();
 	return true;
 }
 
 bool userManager::checkPassword(QString username, QString password)
 {
-	return this->keyring[username] == password;
+	readFile();
+	return keyring[username] == password;
 }
