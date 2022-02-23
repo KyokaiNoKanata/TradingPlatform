@@ -34,6 +34,18 @@ void userManager::writeFile()
 
 bool userManager::userRegister(QString username, QString password, QString contact, QString address)
 {
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if ((*it).username == username)
+		{
+			return false;
+		}
+	}
+	QString ID = "U" + QString::number(data.size() + 1);
+	user u(ID, username, password, contact, address, 0, user::NORMAL);
+	data.insert(u);
+	keyring[u.username] = u.password;
+	return true;
 }
 
 bool userManager::checkPassword(QString username, QString password)

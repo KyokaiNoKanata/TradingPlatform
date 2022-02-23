@@ -64,6 +64,12 @@
     <ClCompile Include="registerWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="calculator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="calculatorWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="userManager.h">
@@ -84,6 +90,9 @@
     <ClInclude Include="order.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="calculator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="adminWindow.h">
@@ -92,12 +101,18 @@
     <QtMoc Include="registerWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="calculatorWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="adminWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="registerWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="calculatorWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

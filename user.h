@@ -3,9 +3,6 @@
 #include <QString>
 #include <QStringList>
 
-#define NORMAL 0
-#define BANNED 1
-
 class user
 {
 public:
@@ -16,6 +13,11 @@ public:
 	QString password;
 	QString contact;
 	QString address;
+	enum statusFlag
+	{
+		NORMAL,
+		BANNED
+	};
 	double balance;
 	bool status;
 	bool operator<(const user& b)const;

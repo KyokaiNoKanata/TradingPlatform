@@ -58,6 +58,12 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
   </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
@@ -86,6 +92,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="adminWindow.cpp" />
+    <ClCompile Include="calculator.cpp" />
+    <ClCompile Include="calculatorWindow.cpp" />
     <ClCompile Include="commodity.cpp" />
     <ClCompile Include="commodityManager.cpp" />
     <ClCompile Include="order.cpp" />
@@ -95,6 +103,7 @@
     <ClCompile Include="userManager.cpp" />
     <QtRcc Include="login.qrc" />
     <QtUic Include="adminWindow.ui" />
+    <QtUic Include="calculatorWindow.ui" />
     <QtUic Include="login.ui" />
     <QtMoc Include="login.h" />
     <ClCompile Include="login.cpp" />
@@ -103,6 +112,8 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="adminWindow.h" />
+    <ClInclude Include="calculator.h" />
+    <QtMoc Include="calculatorWindow.h" />
     <ClInclude Include="commodity.h" />
     <ClInclude Include="commodityManager.h" />
     <ClInclude Include="order.h" />

@@ -6,76 +6,82 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>233</width>
-    <height>194</height>
+    <width>232</width>
+    <height>208</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>login</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
-     <widget class="QLabel" name="usernameLabel">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QFormLayout" name="formLayout">
+      <item row="0" column="0">
+       <widget class="QLabel" name="usernameLabel">
+        <property name="text">
+         <string>username</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="usernameLineEdit"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="passwordLabel">
+        <property name="text">
+         <string>password</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="passwordLineEdit"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>mode</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QRadioButton" name="adminModeRadioButton">
+          <property name="text">
+           <string>admin</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="userModeRadioButton">
+          <property name="text">
+           <string>user</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="0">
+       <widget class="QPushButton" name="registerButton">
+        <property name="text">
+         <string>register</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QPushButton" name="loginButton">
+        <property name="text">
+         <string>login</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="calculatorPushButton">
       <property name="text">
-       <string>username</string>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="1">
-     <widget class="QLineEdit" name="usernameLineEdit"/>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="passwordLabel">
-      <property name="text">
-       <string>password</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="1">
-     <widget class="QLineEdit" name="passwordLineEdit"/>
-    </item>
-    <item row="2" column="0">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>mode</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="1">
-     <widget class="QGroupBox" name="groupBox">
-      <property name="title">
-       <string/>
-      </property>
-      <layout class="QFormLayout" name="formLayout_2">
-       <item row="0" column="0">
-        <widget class="QRadioButton" name="adminModeRadioButton">
-         <property name="text">
-          <string>admin</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QRadioButton" name="userModeRadioButton">
-         <property name="text">
-          <string>user</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item row="3" column="0">
-     <widget class="QPushButton" name="registerButton">
-      <property name="text">
-       <string>register</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="1">
-     <widget class="QPushButton" name="loginButton">
-      <property name="text">
-       <string>login</string>
+       <string>calculator</string>
       </property>
      </widget>
     </item>
@@ -86,7 +92,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>233</width>
+     <width>232</width>
      <height>22</height>
     </rect>
    </property>
@@ -105,8 +111,6 @@
  <tabstops>
   <tabstop>usernameLineEdit</tabstop>
   <tabstop>passwordLineEdit</tabstop>
-  <tabstop>adminModeRadioButton</tabstop>
-  <tabstop>userModeRadioButton</tabstop>
   <tabstop>loginButton</tabstop>
   <tabstop>registerButton</tabstop>
  </tabstops>
@@ -121,8 +125,8 @@
    <slot>onLoginButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>142</x>
-     <y>106</y>
+     <x>221</x>
+     <y>147</y>
     </hint>
     <hint type="destinationlabel">
      <x>227</x>
@@ -137,8 +141,8 @@
    <slot>onRegisterButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>55</x>
-     <y>108</y>
+     <x>65</x>
+     <y>147</y>
     </hint>
     <hint type="destinationlabel">
      <x>87</x>
@@ -146,9 +150,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>calculatorPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>loginClass</receiver>
+   <slot>onCalculatorButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>162</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>29</x>
+     <y>184</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>onLoginButtonClicked()</slot>
   <slot>onRegisterButtonClicked()</slot>
+  <slot>onCalculatorButtonClicked()</slot>
  </slots>
 </ui>

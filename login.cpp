@@ -7,7 +7,6 @@ login::login(QWidget* parent) :QMainWindow(parent)
 
 void login::onLoginButtonClicked()
 {
-	this->um.readFile();
 	if (this->ui.usernameLineEdit->text().isEmpty())
 	{
 		QMessageBox::information(nullptr, "Login Failed", "Please Enter Username");
@@ -23,7 +22,7 @@ void login::onLoginButtonClicked()
 			if (this->adminLogin())
 			{
 				QMessageBox::information(nullptr, "info", "Login Success");
-				auto* aw = new adminWindow();
+				auto aw = new adminWindow();
 				aw->show();
 				this->close();
 			}
@@ -52,8 +51,14 @@ void login::onLoginButtonClicked()
 
 void login::onRegisterButtonClicked()
 {
-	auto* rw = new registerWindow();
+	auto rw = new registerWindow();
 	rw->show();
+}
+
+void login::onCalculatorButtonClicked()
+{
+	auto cw = new calculatorWindow();
+	cw->show();
 }
 
 bool login::adminLogin()
@@ -63,5 +68,6 @@ bool login::adminLogin()
 
 bool login::userLogin()
 {
+	um.readFile();
 	return this->um.checkPassword(this->ui.usernameLineEdit->text(), this->ui.passwordLineEdit->text());
 }

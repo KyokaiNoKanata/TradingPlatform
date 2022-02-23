@@ -6,6 +6,7 @@
 #include "adminWindow.h"
 #include "registerWindow.h"
 #include "userManager.h"
+#include "calculatorWindow.h"
 
 class login :public QMainWindow
 {
@@ -17,6 +18,7 @@ public:
 public slots:
 	void onLoginButtonClicked();
 	void onRegisterButtonClicked();
+	void onCalculatorButtonClicked();
 
 private:
 	Ui::loginClass ui;
