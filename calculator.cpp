@@ -14,76 +14,84 @@ QString calculator::calculate(QString expression)
 	init();
 	if (expression.count('(') != expression.count(')'))
 	{
-		return "ERROR: Bracket does not Match!";
+		return "ERROR 0: Bracket does not Match!";
 	}
 	QString qs;
 	double d;
 	for (auto it = expression.begin(); it != expression.end(); it++)
 	{
 
-		if ((*it).isSymbol())
+		if (symbolCheck(*it))
 		{
-			if ((symbolStack.top() == '(' || symbolStack.isEmpty()) && *it == '-')
+			if ((symbolStack.isEmpty() || symbolStack.top() == '(') && *it == '-')
 			{
 				pushSybmol('_');
 			}
 			else
 			{
-				if (prevType == SYMBOL)
+				if (prevType == SYMBOL && *it != '(')
 				{
-					return "ERROR: Symbol Used Incorrectly!";
+					return "ERROR 1: Symbol Used Incorrectly!";
 				}
-				if (!pushSybmol(*it))
+				else if (!pushSybmol(*it))
 				{
-					return "ERROR: Math Error!";
+					return "ERROR 4: Math Error!";
 				}
 			}
-			prevType = SYMBOL;
+			if (*it == ')')
+			{
+				prevType = NUMBER;
+			}
+			else
+			{
+				prevType = SYMBOL;
+			}
 		}
-		else if ((*it).isDigit())
+		else if ((*it).isNumber())
 		{
 			if (prevType == NUMBER)
 			{
-				return "ERROR: Symbol Used Incorrectly!";
+				return "ERROR 2: Symbol Used Incorrectly!";
 			}
 			qs.clear();
-			while (it != expression.end() && ((*it).isDigit() || *it == '.'))
+			while (it != expression.end() && ((*it).isNumber() || *it == '.'))
 			{
 				qs += *it;
 				it++;
 			}
 			d = qs.toDouble();
-			if (symbolStack.top() == '_')
+			if (!symbolStack.isEmpty() && symbolStack.top() == '_')
 			{
 				symbolStack.pop();
 				d = -d;
 			}
 			dataStack.push(d);
 			prevType = NUMBER;
-			if (it == expression.end())
-			{
-				break;
-			}
+			it--;
 		}
 		else if ((*it).isSpace())
 		{
 			continue;
 		}
+		else
+		{
+			return "ERROR 5: Illegal Input!";
+		}
 	}
 	if (!tidy())
 	{
-		return "ERROR: Math Error!";
+		return "ERROR 4: Math Error!";
 	}
 	if (!symbolStack.isEmpty())
 	{
-		return "ERROR: Symbol Used Incorrectly!";
+		return "ERROR 3: Symbol Used Incorrectly!";
 	}
 	return QString::number(dataStack.top(), 10, 1);
 }
 
 void calculator::init()
 {
-	prevType = EMPTY;
+	prevType = SYMBOL;
 	symbolStack.clear();
 	dataStack.clear();
 }
@@ -132,15 +140,22 @@ double calculator::singleCalculate(double d1, double d2, QChar qc)
 	}
 }
 
+bool calculator::symbolCheck(QChar qc)
+{
+	return qc == '+' || qc == '-' || qc == '*' || qc == '/' || qc == '(' || qc == ')';
+}
+
 bool calculator::pushSybmol(QChar qc)
 {
 	if (qc == ')')
 	{
 		return tidy();
 	}
-	else if (symbolStack.top() != '(' && priority(symbolStack.top()) >= priority(qc))
+	else if (!symbolStack.isEmpty() && symbolStack.top() != '(' && priority(symbolStack.top()) >= priority(qc))
 	{
-		return tidy();
+		bool temp = tidy();
+		symbolStack.push(qc);
+		return temp;
 	}
 	else
 	{
@@ -151,20 +166,31 @@ bool calculator::pushSybmol(QChar qc)
 
 bool calculator::tidy()
 {
-	QChar qc = symbolStack.pop();
-	while (!symbolStack.isEmpty() && qc != '(')
+	if (symbolStack.isEmpty())
 	{
-		double d2 = dataStack.pop();
-		double d1 = dataStack.pop();
-		if (qc == '/' && d2 == 0)
-		{
-			return false;
-		}
-		else
-		{
-			dataStack.push(singleCalculate(d1, d2, qc));
-		}
-		qc = symbolStack.pop();
+		return true;
 	}
-	return true;
+	else
+	{
+		QChar qc;
+		while (!symbolStack.isEmpty())
+		{
+			qc = symbolStack.pop();
+			if (qc == '(')
+			{
+				return true;
+			}
+			double d2 = dataStack.pop();
+			double d1 = dataStack.pop();
+			if (qc == '/' && d2 == 0)
+			{
+				return false;
+			}
+			else
+			{
+				dataStack.push(singleCalculate(d1, d2, qc));
+			}
+		}
+		return true;
+	}
 }

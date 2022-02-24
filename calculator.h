@@ -14,11 +14,12 @@ public:
 private:
 	QStack<QChar>symbolStack;
 	QStack<double>dataStack;
-	enum typeFlag { EMPTY, SYMBOL, NUMBER };
-	int prevType;
+	enum typeFlag { SYMBOL, NUMBER };
+	bool prevType;
 	void init();
 	int priority(QChar qc);
 	double singleCalculate(double d1, double d2, QChar qc);
+	bool symbolCheck(QChar qc);
 	bool pushSybmol(QChar qc);
 	bool tidy();
 };
