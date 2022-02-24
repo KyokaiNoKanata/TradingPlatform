@@ -180,17 +180,20 @@ bool calculator::tidy()
 			{
 				return true;
 			}
-			double d2 = dataStack.pop();
-			double d1 = dataStack.pop();
-			if (qc == '/' && d2 == 0)
-			{
-				return false;
-			}
 			else
 			{
-				dataStack.push(singleCalculate(d1, d2, qc));
+				double d2 = dataStack.pop();
+				double d1 = dataStack.pop();
+				if (qc == '/' && d2 == 0)
+				{
+					return false;
+				}
+				else
+				{
+					dataStack.push(singleCalculate(d1, d2, qc));
+					return true;
+				}
 			}
 		}
-		return true;
 	}
 }
