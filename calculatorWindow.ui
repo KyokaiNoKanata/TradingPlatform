@@ -48,6 +48,11 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>inputLineEdit</tabstop>
+  <tabstop>outputLineEdit</tabstop>
+  <tabstop>calculatePushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
