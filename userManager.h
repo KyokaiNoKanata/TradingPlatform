@@ -20,4 +20,3 @@ private:
 	std::set<user>data;
 	std::map<QString, QString>keyring;
 };
-

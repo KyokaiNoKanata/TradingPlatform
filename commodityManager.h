@@ -16,4 +16,3 @@ public:
 private:
 	std::set<commodity>data;
 };
-

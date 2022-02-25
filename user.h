@@ -18,4 +18,3 @@ public:
 	bool status;
 	bool operator<(const user& b)const;
 };
-

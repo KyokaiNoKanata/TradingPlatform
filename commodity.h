@@ -18,4 +18,3 @@ public:
 	int status;
 	bool operator<(commodity b)const;
 };
-

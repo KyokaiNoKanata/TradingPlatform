@@ -17,4 +17,3 @@ public:
 	QString buyerID;
 	bool operator<(const order b)const;
 };
-
