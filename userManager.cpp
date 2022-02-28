@@ -7,6 +7,8 @@ userManager::userManager()
 
 userManager::~userManager()
 {
+	data.clear();
+	keyring.clear();
 }
 
 void userManager::readFile()
@@ -101,7 +103,7 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 		return false;
 	}
 	user u = *it;
-	data.erase(*it);
+	data.erase(it);
 	switch (type)
 	{
 	case USERNAME:
@@ -112,10 +114,13 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 				return false;
 			}
 		}
-		u.ID = newValue;
+		keyring.erase(u.username);
+		u.username = newValue;
+		keyring[u.username] = u.password;
 		break;
 	case PASSWORD:
 		u.password = newValue;
+		keyring[u.username] = newValue;
 		break;
 	case CONTACT:
 		u.contact = newValue;
