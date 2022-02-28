@@ -11,8 +11,10 @@ class userManager
 public:
 	userManager();
 	~userManager();
+	enum elementType { USERNAME, PASSWORD, CONTACT, ADDRESS };
 	bool userRegister(QString username, QString password, QString contact, QString address);
 	bool checkPassword(QString username, QString password);
+	bool changeUserInfo(QString ID, int type, QString newValue);
 
 private:
 	void readFile();
