@@ -191,9 +191,10 @@ bool calculator::tidy()
 				else
 				{
 					dataStack.push(singleCalculate(d1, d2, qc));
-					return true;
+
 				}
 			}
 		}
+		return true;
 	}
 }
