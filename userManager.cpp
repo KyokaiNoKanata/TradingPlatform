@@ -169,3 +169,8 @@ bool userManager::banUser(QString ID)
 		}
 	}
 }
+
+std::vector<user> userManager::instrctionDecode(QString qs)
+{
+	return std::vector<user>();
+}

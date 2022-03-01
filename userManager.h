@@ -2,6 +2,7 @@
 
 #include <set>
 #include <map>
+#include <vector>
 #include <QFile>
 #include <QTextStream>
 #include "user.h"
@@ -16,6 +17,7 @@ public:
 	bool checkPassword(QString username, QString password);
 	bool changeUserInfo(QString ID, int type, QString newValue);
 	bool banUser(QString ID);
+	std::vector<user>instrctionDecode(QString qs);
 
 private:
 	void readFile();

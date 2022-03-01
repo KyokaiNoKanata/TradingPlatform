@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include "ui_adminWindow.h"
 #include "userManager.h"
+#include "commodityManager.h"
 
 class adminWindow :public QMainWindow
 {
@@ -23,4 +24,5 @@ public slots:
 private:
 	Ui::adminWindow ui;
 	userManager um;
+	commodityManager cm;
 };
