@@ -12,6 +12,14 @@ public:
 	adminWindow(QWidget* parent = Q_NULLPTR);
 	~adminWindow();
 
+public slots:
+	void onCommoditySearchPushButtonClicked();
+	void onCommodityBanPushButtonClicked();
+	void onCommodityViewAllPushButtonClicked();
+	void onUserSearchPushButtonClicked();
+	void onUserBanPushButtonClicked();
+	void onUserViewAllPushButtonClicked();
+
 private:
 	Ui::adminWindow ui;
 	userManager um;

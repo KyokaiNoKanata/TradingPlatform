@@ -8,3 +8,27 @@ adminWindow::adminWindow(QWidget* parent) :QMainWindow(parent)
 adminWindow::~adminWindow()
 {
 }
+
+void adminWindow::onCommoditySearchPushButtonClicked()
+{
+}
+
+void adminWindow::onCommodityBanPushButtonClicked()
+{
+}
+
+void adminWindow::onCommodityViewAllPushButtonClicked()
+{
+}
+
+void adminWindow::onUserSearchPushButtonClicked()
+{
+}
+
+void adminWindow::onUserBanPushButtonClicked()
+{
+}
+
+void adminWindow::onUserViewAllPushButtonClicked()
+{
+}
