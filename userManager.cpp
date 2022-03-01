@@ -136,3 +136,36 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 	writeFile();
 	return true;
 }
+
+bool userManager::banUser(QString ID)
+{
+	readFile();
+	auto it = data.begin();
+	for (; it != data.end(); it++)
+	{
+		if ((*it).ID == ID)
+		{
+			break;
+		}
+	}
+	if (it == data.end())
+	{
+		return false;
+	}
+	else
+	{
+		user u = *it;
+		data.erase(it);
+		if (u.status == user::BANNED)
+		{
+			return false;
+		}
+		else
+		{
+			u.status = user::BANNED;
+			data.insert(u);
+			writeFile();
+			return true;
+		}
+	}
+}

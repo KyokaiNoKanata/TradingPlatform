@@ -15,6 +15,7 @@ public:
 	bool userRegister(QString username, QString password, QString contact, QString address);
 	bool checkPassword(QString username, QString password);
 	bool changeUserInfo(QString ID, int type, QString newValue);
+	bool banUser(QString ID);
 
 private:
 	void readFile();
