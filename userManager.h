@@ -12,12 +12,13 @@ class userManager
 public:
 	userManager();
 	~userManager();
-	enum elementType { USERNAME, PASSWORD, CONTACT, ADDRESS };
+	enum elementType { ID, USERNAME, PASSWORD, CONTACT, ADDRESS, BALANCE, STATUS, NONE };
 	bool userRegister(QString username, QString password, QString contact, QString address);
 	bool checkPassword(QString username, QString password);
 	bool changeUserInfo(QString ID, int type, QString newValue);
 	bool banUser(QString ID);
-	std::vector<user>instrctionDecode(QString qs);
+	bool compare(user u, QString qs, int type);
+	std::vector<user>search(QString qs, int type);
 
 private:
 	void readFile();

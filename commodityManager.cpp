@@ -29,4 +29,53 @@ void commodityManager::readFile()
 
 void commodityManager::writeFile()
 {
+	QFile qf("data/user.txt");
+	qf.open(QIODevice::WriteOnly);
+	QTextStream qts(&qf);
+	qts.setAutoDetectUnicode(true);
+	qts << "商品ID,名称,价格,数量,描述,卖家ID,上架时间,商品状态";
+	QString temp;
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		qts << '\n' << (*it).ID << ',' << (*it).name << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).information << ',' << (*it).sellerID << ',' << (*it).shelfTime << ',' << (*it).status;
+	}
+	qf.close();
+}
+
+bool commodityManager::compare(commodity c, QString qs, int type)
+{
+	switch (type)
+	{
+	case ID:
+		return c.ID == qs;
+	case NAME:
+		return c.name == qs;
+	case PRICE:
+		return c.price == qs.toDouble();
+	case QUANTITY:
+		return c.quantity == qs.toInt();
+	case INFORMATION:
+		return c.information == qs;
+	case SELLER_ID:
+		return c.sellerID == qs;
+	case SHELF_TIME:
+		return c.shelfTime == qs;
+	case STATUS:
+		return c.status == qs.toInt();
+	default:
+		return true;
+	}
+}
+
+std::vector<commodity> commodityManager::search(commodity c, QString qs, int type)
+{
+	std::vector<commodity>res;
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if (compare(*it, qs, type))
+		{
+			res.push_back(*it);
+		}
+	}
+	return res;
 }

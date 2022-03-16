@@ -7,7 +7,7 @@ class order
 {
 public:
 	order(QStringList qsl);
-	order(QString orderID, QString commodityID, double price, int quantity, QString tradeTime, QString sellerID, QString buyerID);
+	order(QString ID, QString commodityID, double price, int quantity, QString tradeTime, QString sellerID, QString buyerID);
 	QString ID;
 	QString commodityID;
 	double price;

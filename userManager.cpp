@@ -170,7 +170,38 @@ bool userManager::banUser(QString ID)
 	}
 }
 
-std::vector<user> userManager::instrctionDecode(QString qs)
+bool userManager::compare(user u, QString qs, int type)
 {
-	return std::vector<user>();
+	switch (type)
+	{
+	case ID:
+		return u.ID == qs;
+	case USERNAME:
+		return u.username == qs;
+	case PASSWORD:
+		return u.password == qs;
+	case CONTACT:
+		return u.contact == qs;
+	case ADDRESS:
+		return u.address == qs;
+	case BALANCE:
+		return u.balance == qs.toDouble();
+	case STATUS:
+		return u.status == qs.toInt();
+	default:
+		return true;
+	}
+}
+
+std::vector<user> userManager::search(QString qs, int type)
+{
+	std::vector<user>res;
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if (compare(*it, qs, type))
+		{
+			res.push_back(*it);
+		}
+	}
+	return res;
 }

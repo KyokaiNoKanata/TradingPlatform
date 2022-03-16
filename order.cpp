@@ -11,9 +11,9 @@ order::order(QStringList qsl)
 	this->buyerID = qsl[0];
 }
 
-order::order(QString orderID, QString commodityID, double price, int quantity, QString tradeTime, QString sellerID, QString buyerID)
+order::order(QString ID, QString commodityID, double price, int quantity, QString tradeTime, QString sellerID, QString buyerID)
 {
-	this->ID = orderID;
+	this->ID = ID;
 	this->commodityID = commodityID;
 	this->price = price;
 	this->quantity = quantity;

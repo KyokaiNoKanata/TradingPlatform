@@ -96,6 +96,9 @@
     <ClCompile Include="calculatorWindow.cpp" />
     <ClCompile Include="commodity.cpp" />
     <ClCompile Include="commodityManager.cpp" />
+    <ClCompile Include="expressionGenerator.cpp" />
+    <ClCompile Include="instructionDecoder.cpp" />
+    <ClCompile Include="instructionGenerator.cpp" />
     <ClCompile Include="order.cpp" />
     <ClCompile Include="orderManager.cpp" />
     <ClCompile Include="registerWindow.cpp">
@@ -125,6 +128,9 @@
     <QtMoc Include="calculatorWindow.h" />
     <ClInclude Include="commodity.h" />
     <ClInclude Include="commodityManager.h" />
+    <ClInclude Include="expressionGenerator.h" />
+    <ClInclude Include="instructionDecoder.h" />
+    <ClInclude Include="instructionGenerator.h" />
     <ClInclude Include="order.h" />
     <ClInclude Include="orderManager.h" />
     <QtMoc Include="registerWindow.h" />

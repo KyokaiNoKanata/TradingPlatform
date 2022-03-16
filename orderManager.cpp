@@ -29,4 +29,51 @@ void orderManager::readFile()
 
 void orderManager::writeFile()
 {
+	QFile qf("data/user.txt");
+	qf.open(QIODevice::WriteOnly);
+	QTextStream qts(&qf);
+	qts.setAutoDetectUnicode(true);
+	qts << "订单ID,商品ID,交易单价,数量,交易时间,卖家ID,买家ID";
+	QString temp;
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		qts << '\n' << (*it).ID << ',' << (*it).commodityID << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).tradeTime << ',' << (*it).sellerID << ',' << (*it).buyerID;
+	}
+	qf.close();
+}
+
+bool orderManager::compare(order o, QString qs, int type)
+{
+	switch (type)
+	{
+	case ID:
+		return o.ID == qs;
+	case COMMODITY_ID:
+		return o.commodityID == qs;
+	case PRICE:
+		return o.price == qs.toDouble();
+	case QUANTITY:
+		return o.quantity == qs.toInt();
+	case TRADE_TIME:
+		return o.tradeTime == qs;
+	case SELLER_ID:
+		return o.sellerID == qs;
+	case BUYER_ID:
+		return o.buyerID == qs;
+	default:
+		return true;
+	}
+}
+
+std::vector<order> orderManager::search(QString qs, int type)
+{
+	std::vector<order>res;
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if (compare(*it, qs, type))
+		{
+			res.push_back(*it);
+		}
+	}
+	return res;
 }
