@@ -175,15 +175,15 @@ bool userManager::compare(user u, QString qs, int type)
 	switch (type)
 	{
 	case ID:
-		return u.ID == qs;
+		return u.ID.contains(qs);
 	case USERNAME:
-		return u.username == qs;
+		return u.username.contains(qs);
 	case PASSWORD:
-		return u.password == qs;
+		return u.password.contains(qs);
 	case CONTACT:
-		return u.contact == qs;
+		return u.contact.contains(qs);
 	case ADDRESS:
-		return u.address == qs;
+		return u.address.contains(qs);
 	case BALANCE:
 		return u.balance == qs.toDouble();
 	case STATUS:

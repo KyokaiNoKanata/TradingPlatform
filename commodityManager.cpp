@@ -47,19 +47,19 @@ bool commodityManager::compare(commodity c, QString qs, int type)
 	switch (type)
 	{
 	case ID:
-		return c.ID == qs;
+		return c.ID.contains(qs);
 	case NAME:
-		return c.name == qs;
+		return c.name.contains(qs);
 	case PRICE:
 		return c.price == qs.toDouble();
 	case QUANTITY:
 		return c.quantity == qs.toInt();
 	case INFORMATION:
-		return c.information == qs;
+		return c.information.contains(qs);
 	case SELLER_ID:
-		return c.sellerID == qs;
+		return c.sellerID.contains(qs);
 	case SHELF_TIME:
-		return c.shelfTime == qs;
+		return c.shelfTime.contains(qs);
 	case STATUS:
 		return c.status == qs.toInt();
 	default:

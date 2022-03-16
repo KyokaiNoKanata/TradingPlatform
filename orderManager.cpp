@@ -47,19 +47,19 @@ bool orderManager::compare(order o, QString qs, int type)
 	switch (type)
 	{
 	case ID:
-		return o.ID == qs;
+		return o.ID.contains(qs);
 	case COMMODITY_ID:
-		return o.commodityID == qs;
+		return o.commodityID.contains(qs);
 	case PRICE:
 		return o.price == qs.toDouble();
 	case QUANTITY:
 		return o.quantity == qs.toInt();
 	case TRADE_TIME:
-		return o.tradeTime == qs;
+		return o.tradeTime.contains(qs);
 	case SELLER_ID:
-		return o.sellerID == qs;
+		return o.sellerID.contains(qs);
 	case BUYER_ID:
-		return o.buyerID == qs;
+		return o.buyerID.contains(qs);
 	default:
 		return true;
 	}
