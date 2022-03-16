@@ -9,7 +9,7 @@ commodity::commodity(QStringList qsl)
 	this->information = qsl[4];
 	this->sellerID = qsl[5];
 	this->shelfTime = qsl[6];
-	this->status = qsl[7].toInt();
+	this->status = qsl[7] == "销售中" ? NORMAL : BANNED;
 }
 
 commodity::commodity(QString ID, QString name, double price, int quantity, QString information, QString sellerID, QString shelfTime, int status)

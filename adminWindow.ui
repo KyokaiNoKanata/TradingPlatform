@@ -18,7 +18,7 @@
     <item row="0" column="0" colspan="2">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -50,7 +50,12 @@
           </column>
           <column>
            <property name="text">
-            <string>time</string>
+            <string>quantity</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>information</string>
            </property>
           </column>
           <column>
@@ -60,7 +65,7 @@
           </column>
           <column>
            <property name="text">
-            <string>quantity</string>
+            <string>shelfTime</string>
            </property>
           </column>
           <column>
@@ -119,6 +124,11 @@
           <column>
            <property name="text">
             <string>username</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>password</string>
            </property>
           </column>
           <column>

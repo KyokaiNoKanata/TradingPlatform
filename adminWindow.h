@@ -23,6 +23,7 @@ public slots:
 
 private:
 	Ui::adminWindow ui;
+	QString i;
 	instructionGenerator ig;
 	instructionDecoder id;
 };

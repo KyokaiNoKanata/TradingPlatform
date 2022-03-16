@@ -33,8 +33,7 @@ void orderManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "订单ID,商品ID,交易单价,数量,交易时间,卖家ID,买家ID";
-	QString temp;
+	qts << "璁㈠崟ID,鍟嗗搧ID,浜ゆ槗鍗曚环,鏁伴噺,浜ゆ槗鏃堕棿,鍗栧ID,涔板ID";
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		qts << '\n' << (*it).ID << ',' << (*it).commodityID << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).tradeTime << ',' << (*it).sellerID << ',' << (*it).buyerID;

@@ -2,6 +2,7 @@
 
 commodityManager::commodityManager()
 {
+	readFile();
 }
 
 commodityManager::~commodityManager()
@@ -33,11 +34,19 @@ void commodityManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "ÉÌÆ·ID,Ãû³Æ,¼Û¸ñ,ÊýÁ¿,ÃèÊö,Âô¼ÒID,ÉÏ¼ÜÊ±¼ä,ÉÌÆ·×´Ì¬";
+	qts << "å•†å“ID,åç§°,ä»·æ ¼,æ•°é‡,æè¿°,å–å®¶ID,ä¸Šæž¶æ—¶é—´,å•†å“çŠ¶æ€";
 	QString temp;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
-		qts << '\n' << (*it).ID << ',' << (*it).name << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).information << ',' << (*it).sellerID << ',' << (*it).shelfTime << ',' << (*it).status;
+		if ((*it).status == commodity::NORMAL)
+		{
+			temp = "é”€å”®ä¸­";
+		}
+		else
+		{
+			temp = "å·²ä¸‹æž¶";
+		}
+		qts << '\n' << (*it).ID << ',' << (*it).name << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).information << ',' << (*it).sellerID << ',' << (*it).shelfTime << ',' << temp;
 	}
 	qf.close();
 }
@@ -67,7 +76,7 @@ bool commodityManager::compare(commodity c, QString qs, int type)
 	}
 }
 
-std::vector<commodity> commodityManager::search(commodity c, QString qs, int type)
+std::vector<commodity> commodityManager::search(QString qs, int type)
 {
 	std::vector<commodity>res;
 	for (auto it = data.begin(); it != data.end(); it++)

@@ -1,4 +1,4 @@
-﻿#include "userManager.h"
+#include "userManager.h"
 
 userManager::userManager()
 {

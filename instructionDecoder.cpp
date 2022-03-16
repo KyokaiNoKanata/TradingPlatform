@@ -26,7 +26,16 @@ int instructionDecoder::getType(QString qs)
 
 std::vector<commodity> instructionDecoder::selectCommodity(QString qs)
 {
-	return std::vector<commodity>();
+	QStringList qsl = qs.split(" ");
+	if (qsl.size() == 4)
+	{
+		return cm.search(QString(), commodityManager::NONE);
+	}
+	else
+	{
+		int type = getCommodityElementType(qsl[5]);
+		return cm.search(qsl[7], type);
+	}
 }
 
 std::vector<order> instructionDecoder::selectOrder(QString qs)
@@ -50,7 +59,42 @@ std::vector<user> instructionDecoder::selectUser(QString qs)
 
 int instructionDecoder::getCommodityElementType(QString qs)
 {
-	return 0;
+	if (qs == "ID")
+	{
+		return commodityManager::ID;
+	}
+	else if (qs == "name")
+	{
+		return commodityManager::NAME;
+	}
+	else if (qs == "price")
+	{
+		return commodityManager::PRICE;
+	}
+	else if (qs == "quantity")
+	{
+		return commodityManager::QUANTITY;
+	}
+	else if (qs == "information")
+	{
+		return commodityManager::INFORMATION;
+	}
+	else if (qs == "sellerID")
+	{
+		return commodityManager::SELLER_ID;
+	}
+	else if (qs == "shelfTime")
+	{
+		return commodityManager::SHELF_TIME;
+	}
+	else if (qs == "status")
+	{
+		return commodityManager::STATUS;
+	}
+	else
+	{
+		return userManager::NONE;
+	}
 }
 
 int instructionDecoder::getOrderElementType(QString qs)
