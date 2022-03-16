@@ -31,7 +31,7 @@ void adminWindow::onCommodityViewAllPushButtonClicked()
 		ui.commodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.commodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.commodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
-		ui.commodityTableWidget->setItem(i, 7, new QTableWidgetItem(data[i].status ? "BANNED" : "NORMAL"));
+		ui.commodityTableWidget->setItem(i, 7, new QTableWidgetItem(data[i].status ? "已下架" : "销售中"));
 	}
 	ui.commodityTableWidget->resizeColumnsToContents();
 	ui.commodityTableWidget->resizeRowsToContents();
@@ -43,6 +43,10 @@ void adminWindow::onUserSearchPushButtonClicked()
 
 void adminWindow::onUserBanPushButtonClicked()
 {
+	int row = ui.userTableWidget->currentRow();
+	int column = ui.userTableWidget->currentColumn();
+	QString ID = ui.userTableWidget->item(row, 0)->text();
+	ui.userSearchLineEdit->setText(ID);
 }
 
 void adminWindow::onUserViewAllPushButtonClicked()
@@ -58,7 +62,7 @@ void adminWindow::onUserViewAllPushButtonClicked()
 		ui.userTableWidget->setItem(i, 3, new QTableWidgetItem(data[i].contact));
 		ui.userTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].address));
 		ui.userTableWidget->setItem(i, 5, new QTableWidgetItem(QString::number(data[i].balance, 10, 1)));
-		ui.userTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].status ? "BANNED" : "NORMAL"));
+		ui.userTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].status ? "已封禁" : "正常"));
 	}
 	ui.userTableWidget->resizeColumnsToContents();
 	ui.userTableWidget->resizeRowsToContents();
