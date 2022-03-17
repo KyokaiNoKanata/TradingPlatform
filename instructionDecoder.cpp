@@ -57,11 +57,11 @@ bool instructionDecoder::modifyOperation(QString qs)
 		{
 			searchType = getCommodityElementType(qsl[7]);
 			modifyType = getCommodityElementType(qsl[3]);
+			return cm.getAndModify(searchType, searchElement, modifyType, modifyElement);
 		}
 		else if (qsl[1] == "order")
 		{
-			searchType = getOrderElementType(qsl[7]);
-			modifyType = getCommodityElementType(qsl[3]);
+			return false;
 		}
 		else if (qsl[1] == "user")
 		{

@@ -93,7 +93,6 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 		return false;
 	}
 	user u = *it;
-	data.erase(it);
 	switch (type)
 	{
 	case USERNAME:
@@ -135,6 +134,7 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 		return false;
 		break;
 	}
+	data.erase(it);
 	data.insert(u);
 	writeFile();
 	return true;

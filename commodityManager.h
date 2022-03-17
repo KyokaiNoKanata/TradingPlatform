@@ -18,6 +18,8 @@ public:
 	bool newCommodity(QStringList qsl);
 	bool compare(commodity c, QString qs, int type);
 	std::vector<commodity>search(QString qs, int type);
+	bool changeCommodityInfo(QString ID, int type, QString newValue);
+	bool getAndModify(int searchType, QString searchElement, int modifyType, QString modifyElement);
 
 private:
 	QDateTime qdt;

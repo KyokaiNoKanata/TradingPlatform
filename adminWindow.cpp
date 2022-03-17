@@ -15,8 +15,8 @@ void adminWindow::onCommoditySearchPushButtonClicked()
 
 void adminWindow::onCommodityBanPushButtonClicked()
 {
-	int row = ui.orderTableWidget->currentRow();
-	QString ID = ui.orderTableWidget->item(row, 0)->text();
+	int row = ui.commodityTableWidget->currentRow();
+	QString ID = ui.commodityTableWidget->item(row, 0)->text();
 	QStringList qsl;
 	qsl.append("ID");
 	qsl.append(ID);
@@ -47,7 +47,7 @@ void adminWindow::onCommodityViewAllPushButtonClicked()
 		ui.commodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.commodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.commodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
-		ui.commodityTableWidget->setItem(i, 7, new QTableWidgetItem(data[i].status ? "已下架" : "销售中"));
+		ui.commodityTableWidget->setItem(i, 7, new QTableWidgetItem(data[i].status != commodity::NORMAL ? "已下架" : "销售中"));
 	}
 	ui.commodityTableWidget->resizeColumnsToContents();
 	ui.commodityTableWidget->resizeRowsToContents();

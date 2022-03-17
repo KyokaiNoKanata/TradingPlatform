@@ -31,7 +31,7 @@ void orderManager::readFile()
 
 void orderManager::writeFile()
 {
-	QFile qf("data/user.txt");
+	QFile qf("data/order.txt");
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);

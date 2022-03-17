@@ -31,7 +31,7 @@ void commodityManager::readFile()
 
 void commodityManager::writeFile()
 {
-	QFile qf("data/user.txt");
+	QFile qf("data/commodity.txt");
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
@@ -119,4 +119,71 @@ std::vector<commodity> commodityManager::search(QString qs, int type)
 		}
 	}
 	return res;
+}
+
+bool commodityManager::changeCommodityInfo(QString ID, int type, QString newValue)
+{
+	auto it = data.begin();
+	for (; it != data.end(); it++)
+	{
+		if ((*it).ID == ID)
+		{
+			break;
+		}
+	}
+	commodity c = *it;
+	switch (type)
+	{
+	case NAME:
+		for (auto it2 = data.begin(); it2 != data.end(); it2++)
+		{
+			if ((*it2).name == newValue)
+			{
+				return false;
+			}
+		}
+		c.name = newValue;
+		break;
+	case PRICE:
+		c.price = newValue.toDouble();
+		break;
+	case QUANTITY:
+		c.quantity = newValue.toInt();
+		break;
+	case INFORMATION:
+		c.information = newValue;
+		break;
+	case STATUS:
+		if (newValue == "BANNED")
+		{
+			if (c.status == commodity::BANNED)
+			{
+				return false;
+			}
+			else
+			{
+				c.status = commodity::BANNED;
+			}
+		}
+		break;
+	default:
+		return false;
+	}
+	data.erase(it);
+	data.insert(c);
+	writeFile();
+	return true;
+}
+
+bool commodityManager::getAndModify(int searchType, QString searchElement, int modifyType, QString modifyElement)
+{
+	readFile();
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if (compare(*it, searchElement, searchType))
+		{
+			return changeCommodityInfo((*it).ID, modifyType, modifyElement);
+		}
+	}
+	return false;
 }
