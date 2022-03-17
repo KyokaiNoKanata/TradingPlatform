@@ -34,6 +34,7 @@ void newCommodityWidget::onPushButtonClicked()
 	}
 	else
 	{
+		cm.readFile();
 		QStringList qsl = { cm.getNextID(),name,price,quantity,info,ID,qdt.currentDateTime().toString("yyyy-MM-dd"),"销售中" };
 		i = ig.generate(instructionGenerator::INSERT, instructionGenerator::COMMODITY, qsl);
 		if (id.modifyOperation(i))
