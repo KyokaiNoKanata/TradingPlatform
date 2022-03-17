@@ -14,11 +14,11 @@
    <string>adminWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QFormLayout" name="formLayout_2">
+   <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -30,7 +30,7 @@
        <attribute name="title">
         <string>商品</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout">
+       <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
          <widget class="QTableWidget" name="commodityTableWidget">
           <column>
@@ -187,7 +187,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="tab">
+      <widget class="QWidget" name="orderTab">
        <attribute name="title">
         <string>订单</string>
        </attribute>
@@ -265,7 +265,7 @@
    <slot>onCommoditySearchPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>270</x>
+     <x>357</x>
      <y>252</y>
     </hint>
     <hint type="destinationlabel">
@@ -345,7 +345,7 @@
    <slot>onUserSearchPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>270</x>
+     <x>357</x>
      <y>252</y>
     </hint>
     <hint type="destinationlabel">
@@ -358,14 +358,14 @@
    <sender>orderViewAllPushButton</sender>
    <signal>clicked()</signal>
    <receiver>adminWindow</receiver>
-   <slot>onOrderViewAllButtonClicked()</slot>
+   <slot>onOrderViewAllPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>254</x>
-     <y>246</y>
+     <x>267</x>
+     <y>250</y>
     </hint>
     <hint type="destinationlabel">
-     <x>338</x>
+     <x>272</x>
      <y>263</y>
     </hint>
    </hints>
@@ -378,6 +378,6 @@
   <slot>onUserSearchPushButtonClicked()</slot>
   <slot>onUserBanPushButtonClicked()</slot>
   <slot>onUserViewAllPushButtonClicked()</slot>
-  <slot>onOrderViewAllButtonClicked()</slot>
+  <slot>onOrderViewAllPushButtonClicked()</slot>
  </slots>
 </ui>

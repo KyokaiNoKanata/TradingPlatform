@@ -3,12 +3,12 @@
 order::order(QStringList qsl)
 {
 	this->ID = qsl[0];
-	this->commodityID = qsl[0];
-	this->price = qsl[0].toDouble();
-	this->quantity = qsl[0].toInt();
-	this->tradeTime = qsl[0];
-	this->sellerID = qsl[0];
-	this->buyerID = qsl[0];
+	this->commodityID = qsl[1];
+	this->price = qsl[2].toDouble();
+	this->quantity = qsl[3].toInt();
+	this->tradeTime = qsl[4];
+	this->sellerID = qsl[5];
+	this->buyerID = qsl[6];
 }
 
 order::order(QString ID, QString commodityID, double price, int quantity, QString tradeTime, QString sellerID, QString buyerID)
