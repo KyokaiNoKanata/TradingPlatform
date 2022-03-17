@@ -2,8 +2,8 @@
 
 QString instructionGenerator::generate(int operationType, int dataType, QStringList qsl)
 {
+	res.clear();
 	QString qs;
-	QString res;
 	switch (dataType)
 	{
 	case COMMODITY:
@@ -20,14 +20,50 @@ QString instructionGenerator::generate(int operationType, int dataType, QStringL
 	}
 	switch (operationType)
 	{
+	case INSERT:
+		res = "INSERT INTO " + qs + " VALUES (";
+		for (auto it = qsl.begin(); it != qsl.end(); it++)
+		{
+			if (it != qsl.begin())
+			{
+				res.append(",");
+			}
+			res.append(*it);
+		}
+		res.append(")");
+		break;
+	case UPDATE:
+		res = "UPDATE " + qs + " SET ";
+		qs = "WHERE " + qsl[0] + " = " + qsl[1];
+		for (int i = 2; i < qsl.size(); i += 2)
+		{
+			if (i != 2)
+			{
+				res.append(", ");
+			}
+			res.append(qsl[i] + " = " + qsl[i + 1]);
+		}
+		res.append(qs);
+		break;
 	case SELECT:
 		res = "SELECT * FROM " + qs;
 		if (!qsl.isEmpty())
 		{
-			res.append("WHERE " + qsl[0] + " CONTAINS " + qsl[1]);
+			res.append(" WHERE " + qsl[0] + " CONTAINS " + qsl[1]);
 		}
-		return res;
+		break;
 	default:
-		return QString();
+		break;
 	}
+	writeFile();
+	return res;
+}
+
+void instructionGenerator::writeFile()
+{
+	QFile qf("data/commands.txt");
+	qf.open(QIODevice::ReadWrite | QIODevice::Append);
+	QTextStream qts(&qf);
+	qts << qdt.currentDateTime().toString("yyyy-MM-dd hh:mm:ss") << ": " << res << '\n';
+	qf.close();
 }

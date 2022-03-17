@@ -21,4 +21,3 @@ private:
 	int getOrderElementType(QString qs);
 	int getUserElementType(QString qs);
 };
-
