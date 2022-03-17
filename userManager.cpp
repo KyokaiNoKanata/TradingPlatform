@@ -155,14 +155,14 @@ bool userManager::banUser(QString ID)
 	}
 	else
 	{
-		user u = *it;
-		data.erase(it);
-		if (u.status == user::BANNED)
+		if ((*it).status == user::BANNED)
 		{
 			return false;
 		}
 		else
 		{
+			user u = *it;
+			data.erase(it);
 			u.status = user::BANNED;
 			data.insert(u);
 			writeFile();
