@@ -14,9 +14,12 @@
    <string>用户窗口</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -28,9 +31,6 @@
         <string>我是买家</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
-        <item row="2" column="0">
-         <widget class="QLineEdit" name="buyerSearchLineEdit"/>
-        </item>
         <item row="0" column="0">
          <widget class="QTableWidget" name="buyerCommodityTableWidget">
           <column>
@@ -73,6 +73,13 @@
             <string>状态</string>
            </property>
           </column>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="buyerSearchPushButton">
+          <property name="text">
+           <string>搜索</string>
+          </property>
          </widget>
         </item>
         <item row="0" column="1">
@@ -135,12 +142,8 @@
           </item>
          </layout>
         </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="buyerSearchPushButton">
-          <property name="text">
-           <string>搜索</string>
-          </property>
-         </widget>
+        <item row="2" column="0">
+         <widget class="QLineEdit" name="buyerSearchLineEdit"/>
         </item>
        </layout>
       </widget>
@@ -294,7 +297,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="informationTab">
+      <widget class="QWidget" name="infoModifyTab">
        <attribute name="title">
         <string>修改信息</string>
        </attribute>
@@ -320,6 +323,80 @@
          <widget class="QPushButton" name="changeAddressPushButton">
           <property name="text">
            <string>修改地址</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="infoTab">
+       <attribute name="title">
+        <string>个人信息</string>
+       </attribute>
+       <layout class="QFormLayout" name="formLayout">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>ID</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QLineEdit" name="showIDLineEdit"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>用户名</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QLineEdit" name="showUsernameLineEdit"/>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_8">
+          <property name="text">
+           <string>联系方式</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QLineEdit" name="showContactLineEdit"/>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_9">
+          <property name="text">
+           <string>地址</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QLineEdit" name="showAddressLineEdit"/>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_10">
+          <property name="text">
+           <string>余额</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QLineEdit" name="showBalanceLineEdit"/>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="chargePushButton">
+          <property name="text">
+           <string>充值</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLineEdit" name="chargeLineEdit"/>
+        </item>
+        <item row="6" column="1">
+         <widget class="QPushButton" name="showInfoPushButton">
+          <property name="text">
+           <string>显示个人信息</string>
           </property>
          </widget>
         </item>
@@ -538,8 +615,8 @@
    <slot>onShowOrderPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>224</y>
+     <x>105</x>
+     <y>249</y>
     </hint>
     <hint type="destinationlabel">
      <x>106</x>
@@ -554,8 +631,8 @@
    <slot>onBuyerShowOrderPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>246</y>
+     <x>105</x>
+     <y>271</y>
     </hint>
     <hint type="destinationlabel">
      <x>2</x>
@@ -570,12 +647,44 @@
    <slot>onSellerShowOrderPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>99</x>
-     <y>268</y>
+     <x>105</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>4</x>
      <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showInfoPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onShowInfoPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>123</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>8</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>chargePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onChargePushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>216</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>0</x>
+     <y>281</y>
     </hint>
    </hints>
   </connection>
@@ -595,5 +704,7 @@
   <slot>onLogOutPushButtonClicked()</slot>
   <slot>onBuyerShowOrderPushButtonClicked()</slot>
   <slot>onSellerShowOrderPushButtonClicked()</slot>
+  <slot>onShowInfoPushButtonClicked()</slot>
+  <slot>onChargePushButtonClicked()</slot>
  </slots>
 </ui>

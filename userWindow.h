@@ -30,6 +30,8 @@ public slots:
 	void onChangeAddressPushButtonClicked();
 	void onBuyerShowOrderPushButtonClicked();
 	void onSellerShowOrderPushButtonClicked();
+	void onShowInfoPushButtonClicked();
+	void onChargePushButtonClicked();
 
 private:
 	Ui::userWindow ui;

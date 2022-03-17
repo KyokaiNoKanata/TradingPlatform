@@ -130,6 +130,9 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 			}
 		}
 		break;
+	case BALANCE:
+		u.balance = newValue.toDouble();
+		break;
 	default:
 		return false;
 		break;

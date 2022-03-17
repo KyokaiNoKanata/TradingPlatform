@@ -278,3 +278,28 @@ void userWindow::onSellerShowOrderPushButtonClicked()
 	ui.orderTableWidget->resizeColumnsToContents();
 	ui.orderTableWidget->resizeRowsToContents();
 }
+
+void userWindow::onShowInfoPushButtonClicked()
+{
+	ui.showIDLineEdit->setText(u.ID);
+	ui.showUsernameLineEdit->setText(u.username);
+	ui.showContactLineEdit->setText(u.contact);
+	ui.showAddressLineEdit->setText(u.address);
+	ui.showBalanceLineEdit->setText(QString::number(u.balance, 10, 1));
+}
+
+void userWindow::onChargePushButtonClicked()
+{
+	QString res = QString::number(u.balance + ui.chargeLineEdit->text().toDouble(), 10, 1);
+	QStringList qsl = { "ID",u.ID,"balance",res };
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	if (id.modifyOperation(i))
+	{
+		u.balance = res.toDouble();
+		QMessageBox::information(nullptr, "提示", "充值成功");
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "充值失败");
+	}
+}
