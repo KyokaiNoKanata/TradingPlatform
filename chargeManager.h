@@ -20,4 +20,3 @@ private:
 	void readFile();
 	void writeFile();
 };
-

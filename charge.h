@@ -11,4 +11,3 @@ public:
 	double chargeAmount;
 	QString chargeTime;
 };
-
