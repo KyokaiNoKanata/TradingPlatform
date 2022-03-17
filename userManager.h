@@ -19,6 +19,8 @@ public:
 	bool banUser(QString ID);
 	bool compare(user u, QString qs, int type);
 	std::vector<user>search(QString qs, int type);
+	QString getNextID();
+	user getUser(QString username);
 
 private:
 	void readFile();

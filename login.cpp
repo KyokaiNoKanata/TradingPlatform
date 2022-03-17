@@ -9,11 +9,11 @@ void login::onLoginButtonClicked()
 {
 	if (ui.usernameLineEdit->text().isEmpty())
 	{
-		QMessageBox::information(nullptr, "Login Failed", "Please Enter Username");
+		QMessageBox::information(nullptr, "登录失败", "请输入用户名");
 	}
 	else if (ui.passwordLineEdit->text().isEmpty())
 	{
-		QMessageBox::information(nullptr, "Login Failed", "Please Enter Password");
+		QMessageBox::information(nullptr, "登录失败", "请输入密码");
 	}
 	else
 	{
@@ -21,30 +21,33 @@ void login::onLoginButtonClicked()
 		{
 			if (adminLogin())
 			{
-				QMessageBox::information(nullptr, "info", "Login Success");
+				QMessageBox::information(nullptr, "提示", "登录成功");
 				auto aw = new adminWindow();
 				aw->show();
-				close();
+				this->close();
 			}
 			else
 			{
-				QMessageBox::information(nullptr, "Login Failed", "Wrong Username or Password");
+				QMessageBox::information(nullptr, "登录失败", "用户名或密码错误");
 			}
 		}
 		else if (ui.userModeRadioButton->isChecked())
 		{
 			if (userLogin())
 			{
-				QMessageBox::information(nullptr, "info", "Login Success");
+				QMessageBox::information(nullptr, "提示", "登录成功");
+				auto uw = new userWindow(um.getUser(ui.usernameLineEdit->text()));
+				uw->show();
+				this->close();
 			}
 			else
 			{
-				QMessageBox::information(nullptr, "Login Failed", "Wrong Username or Password");
+				QMessageBox::information(nullptr, "提示", "用户名或密码错误");
 			}
 		}
 		else
 		{
-			QMessageBox::information(nullptr, "Login Failed", "Please Select a Mode");
+			QMessageBox::information(nullptr, "登录失败", "请选择模式");
 		}
 	}
 }

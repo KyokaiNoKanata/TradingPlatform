@@ -64,18 +64,7 @@ bool userManager::userRegister(QString username, QString password, QString conta
 			return false;
 		}
 	}
-	QString ID = "U";
-	auto temp = data.size() + 1;
-	if (temp < 10)
-	{
-		ID += "00";
-	}
-	else if (temp < 100)
-	{
-		ID += "0";
-	}
-	ID += QString::number(temp);
-	user u(ID, username, password, contact, address, 0, user::NORMAL);
+	user u(getNextID(), username, password, contact, address, 0, user::NORMAL);
 	data.insert(u);
 	keyring[u.username] = u.password;
 	writeFile();
@@ -128,6 +117,9 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 		break;
 	case ADDRESS:
 		u.address = newValue;
+		break;
+	case STATUS:
+		u.status = newValue.toInt();
 		break;
 	default:
 		return false;
@@ -206,4 +198,32 @@ std::vector<user> userManager::search(QString qs, int type)
 		}
 	}
 	return res;
+}
+
+QString userManager::getNextID()
+{
+	QString ID = "U";
+	int temp = data.size() + 1;
+	if (temp < 10)
+	{
+		ID += "00";
+	}
+	else if (temp < 100)
+	{
+		ID += "0";
+	}
+	ID += QString::number(temp);
+	return ID;
+}
+
+user userManager::getUser(QString username)
+{
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if ((*it).username == username)
+		{
+			return *it;
+		}
+	}
+	return user();
 }

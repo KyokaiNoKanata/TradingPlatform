@@ -54,6 +54,13 @@
             </property>
            </widget>
           </item>
+          <item>
+           <widget class="QPushButton" name="logOutPushButton">
+            <property name="text">
+             <string>注销</string>
+            </property>
+           </widget>
+          </item>
          </layout>
         </item>
         <item row="0" column="0">
@@ -86,6 +93,11 @@
           <column>
            <property name="text">
             <string>卖家ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>上架时间</string>
            </property>
           </column>
           <column>
@@ -132,6 +144,11 @@
           <column>
            <property name="text">
             <string>卖家ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>上架时间</string>
            </property>
           </column>
           <column>
@@ -228,6 +245,37 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="informationTab">
+       <attribute name="title">
+        <string>修改信息</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_4">
+        <item row="0" column="0">
+         <widget class="QLineEdit" name="newValueLineEdit"/>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="changeUsernamePushButton">
+          <property name="text">
+           <string>修改用户名</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="changeContactPushButton">
+          <property name="text">
+           <string>修改联系方式</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="changeAddressPushButton">
+          <property name="text">
+           <string>修改地址</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -273,8 +321,8 @@
    <slot>onBuyerBuyPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>344</x>
-     <y>169</y>
+     <x>356</x>
+     <y>138</y>
     </hint>
     <hint type="destinationlabel">
      <x>367</x>
@@ -289,28 +337,12 @@
    <slot>onBuyerViewAllPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>339</x>
-     <y>94</y>
+     <x>356</x>
+     <y>83</y>
     </hint>
     <hint type="destinationlabel">
      <x>368</x>
      <y>102</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>showOrderPushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>userWindow</receiver>
-   <slot>onshowOrderPushButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>133</x>
-     <y>252</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>140</x>
-     <y>265</y>
     </hint>
    </hints>
   </connection>
@@ -321,8 +353,8 @@
    <slot>onSellerViewAllPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>318</x>
-     <y>64</y>
+     <x>316</x>
+     <y>60</y>
     </hint>
     <hint type="destinationlabel">
      <x>365</x>
@@ -337,8 +369,8 @@
    <slot>onSellerNewCommodityPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>328</x>
-     <y>118</y>
+     <x>316</x>
+     <y>109</y>
     </hint>
     <hint type="destinationlabel">
      <x>365</x>
@@ -353,8 +385,8 @@
    <slot>onSellerModifyPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>332</x>
-     <y>170</y>
+     <x>316</x>
+     <y>158</y>
     </hint>
     <hint type="destinationlabel">
      <x>368</x>
@@ -369,12 +401,92 @@
    <slot>onSellerBanPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>311</x>
-     <y>220</y>
+     <x>316</x>
+     <y>207</y>
     </hint>
     <hint type="destinationlabel">
      <x>367</x>
      <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>changeUsernamePushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onChangeUsernamePushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>110</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>381</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>changeContactPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onChangeContactPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>159</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>393</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>changeAddressPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onChangeAddressPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>314</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>logOutPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onLogOutPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>340</x>
+     <y>183</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>366</x>
+     <y>34</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>showOrderPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onShowOrderPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>106</x>
+     <y>270</y>
     </hint>
    </hints>
   </connection>
@@ -383,10 +495,14 @@
   <slot>onBuyerSearchPushButtonClicked()</slot>
   <slot>onBuyerBuyPushButtonClicked()</slot>
   <slot>onBuyerViewAllPushButtonClicked()</slot>
-  <slot>onshowOrderPushButtonClicked()</slot>
+  <slot>onShowOrderPushButtonClicked()</slot>
   <slot>onSellerViewAllPushButtonClicked()</slot>
   <slot>onSellerNewCommodityPushButtonClicked()</slot>
   <slot>onSellerModifyPushButtonClicked()</slot>
   <slot>onSellerBanPushButtonClicked()</slot>
+  <slot>onChangeUsernamePushButtonClicked()</slot>
+  <slot>onChangeContactPushButtonClicked()</slot>
+  <slot>onChangeAddressPushButtonClicked()</slot>
+  <slot>onLogOutPushButtonClicked()</slot>
  </slots>
 </ui>

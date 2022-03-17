@@ -6,6 +6,7 @@
 class user
 {
 public:
+	user();
 	user(QStringList qsl);
 	user(QString ID, QString username, QString password, QString contact, QString address, double balance, int status);
 	QString ID;

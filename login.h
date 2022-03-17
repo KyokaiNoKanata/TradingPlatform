@@ -7,6 +7,7 @@
 #include "registerWindow.h"
 #include "userManager.h"
 #include "calculatorWindow.h"
+#include "userWindow.h"
 
 class login :public QMainWindow
 {

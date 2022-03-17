@@ -44,9 +44,14 @@ void adminWindow::onUserSearchPushButtonClicked()
 void adminWindow::onUserBanPushButtonClicked()
 {
 	int row = ui.userTableWidget->currentRow();
-	int column = ui.userTableWidget->currentColumn();
 	QString ID = ui.userTableWidget->item(row, 0)->text();
-	ui.userSearchLineEdit->setText(ID);
+	QStringList qsl;
+	qsl.append("ID");
+	qsl.append(ID);
+	qsl.append("status");
+	qsl.append("BANNED");
+	QString qs = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	id.modifyOperation(qs);
 }
 
 void adminWindow::onUserViewAllPushButtonClicked()

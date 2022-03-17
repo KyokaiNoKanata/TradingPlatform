@@ -32,15 +32,15 @@ bool instructionDecoder::modifyOperation(QString qs)
 		QStringList qsl2 = qsl[4].remove("(").remove(")").split(",");
 		if (qsl[2] == "commodity")
 		{
-			cm.newCommodity(qsl2);
+			return cm.newCommodity(qsl2);
 		}
 		else if (qsl[2] == "order")
 		{
-			om.newOrder(qsl2);
+			return om.newOrder(qsl2);
 		}
 		else if (qsl[2] == "user")
 		{
-			um.userRegister(qsl2[0], qsl[1], qsl[2], qsl[3]);
+			return um.userRegister(qsl2[0], qsl[1], qsl[2], qsl[3]);
 		}
 		else
 		{
@@ -49,7 +49,21 @@ bool instructionDecoder::modifyOperation(QString qs)
 	}
 	else if (qsl[0] == "UPDATE")
 	{
+		if (qsl[1] == "commodity")
+		{
 
+		}
+		else if (qsl[1] == "order")
+		{
+
+		}
+		else if (qsl[1] == "user")
+		{
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else
 	{

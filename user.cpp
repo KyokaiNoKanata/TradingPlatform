@@ -1,5 +1,16 @@
 ﻿#include "user.h"
 
+user::user()
+{
+	this->ID = QString();
+	this->username = QString();
+	this->password = QString();
+	this->contact = QString();
+	this->address = QString();
+	this->balance = double();
+	this->status = bool();
+}
+
 user::user(QStringList qsl)
 {
 	this->ID = qsl[0];

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>370</width>
-    <height>268</height>
+    <height>266</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -75,7 +75,14 @@
           </column>
          </widget>
         </item>
-        <item row="0" column="1">
+        <item row="1" column="2">
+         <widget class="QPushButton" name="commoditySearchPushButton">
+          <property name="text">
+           <string>搜索</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
            <widget class="QPushButton" name="commodityVewAllPushButton">
@@ -94,18 +101,7 @@
          </layout>
         </item>
         <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
-          <item>
-           <widget class="QLineEdit" name="commoditySearchLineEdit"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="commoditySearchPushButton">
-          <property name="text">
-           <string>搜索</string>
-          </property>
-         </widget>
+         <widget class="QLineEdit" name="commoditySearchLineEdit"/>
         </item>
        </layout>
       </widget>
@@ -170,20 +166,6 @@
            </widget>
           </item>
          </layout>
-        </item>
-        <item row="1" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_5">
-          <item>
-           <widget class="QLineEdit" name="userSearchLineEdit"/>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="userSearchPushButton">
-          <property name="text">
-           <string>搜索</string>
-          </property>
-         </widget>
         </item>
        </layout>
       </widget>
@@ -250,11 +232,9 @@
   <tabstop>commodityTableWidget</tabstop>
   <tabstop>commodityVewAllPushButton</tabstop>
   <tabstop>commodityBanPushButton</tabstop>
-  <tabstop>commoditySearchLineEdit</tabstop>
   <tabstop>userTableWidget</tabstop>
   <tabstop>userViewAllPushButton</tabstop>
   <tabstop>userBanPushButton</tabstop>
-  <tabstop>userSearchLineEdit</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -330,27 +310,11 @@
    <hints>
     <hint type="sourcelabel">
      <x>356</x>
-     <y>174</y>
+     <y>192</y>
     </hint>
     <hint type="destinationlabel">
      <x>382</x>
      <y>262</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>userSearchPushButton</sender>
-   <signal>clicked()</signal>
-   <receiver>adminWindow</receiver>
-   <slot>onUserSearchPushButtonClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>357</x>
-     <y>252</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>380</x>
-     <y>324</y>
     </hint>
    </hints>
   </connection>
@@ -375,7 +339,6 @@
   <slot>onCommoditySearchPushButtonClicked()</slot>
   <slot>onCommodityBanPushButtonClicked()</slot>
   <slot>onCommodityViewAllPushButtonClicked()</slot>
-  <slot>onUserSearchPushButtonClicked()</slot>
   <slot>onUserBanPushButtonClicked()</slot>
   <slot>onUserViewAllPushButtonClicked()</slot>
   <slot>onOrderViewAllPushButtonClicked()</slot>
