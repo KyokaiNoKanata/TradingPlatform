@@ -198,7 +198,7 @@ void userWindow::onChangeContactPushButtonClicked()
 	}
 	else
 	{
-		QMessageBox::information(nullptr, "错误", "修改失败，存在同名用户");
+		QMessageBox::information(nullptr, "错误", "修改失败");
 	}
 }
 
@@ -217,7 +217,7 @@ void userWindow::onChangeAddressPushButtonClicked()
 	}
 	else
 	{
-		QMessageBox::information(nullptr, "错误", "修改失败，存在同名用户");
+		QMessageBox::information(nullptr, "错误", "修改失败");
 	}
 }
 
