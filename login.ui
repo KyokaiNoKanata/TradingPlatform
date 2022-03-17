@@ -111,8 +111,11 @@
  <tabstops>
   <tabstop>usernameLineEdit</tabstop>
   <tabstop>passwordLineEdit</tabstop>
+  <tabstop>adminModeRadioButton</tabstop>
+  <tabstop>userModeRadioButton</tabstop>
   <tabstop>loginButton</tabstop>
   <tabstop>registerButton</tabstop>
+  <tabstop>calculatorPushButton</tabstop>
  </tabstops>
  <resources>
   <include location="login.qrc"/>

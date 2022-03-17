@@ -332,9 +332,11 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
+  <tabstop>tabWidget</tabstop>
   <tabstop>buyerCommodityTableWidget</tabstop>
   <tabstop>buyerViewAllPushButton</tabstop>
   <tabstop>buyerBuyPushButton</tabstop>
+  <tabstop>logOutPushButton</tabstop>
   <tabstop>buyerSearchLineEdit</tabstop>
   <tabstop>buyerSearchPushButton</tabstop>
   <tabstop>sellerCommodityTableWidget</tabstop>
@@ -344,6 +346,12 @@
   <tabstop>sellerBanPushButton</tabstop>
   <tabstop>orderTableWidget</tabstop>
   <tabstop>showOrderPushButton</tabstop>
+  <tabstop>buyerShowOrderPushButton</tabstop>
+  <tabstop>sellerShowOrderPushButton</tabstop>
+  <tabstop>newValueLineEdit</tabstop>
+  <tabstop>changeUsernamePushButton</tabstop>
+  <tabstop>changeContactPushButton</tabstop>
+  <tabstop>changeAddressPushButton</tabstop>
  </tabstops>
  <resources/>
  <connections>
