@@ -18,53 +18,53 @@ void registerWindow::onRegisterButtonClicked()
 		address = ui.addressLineEdit->text();
 	if (username.isEmpty())
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Please Enter Username");
+		QMessageBox::information(nullptr, "注册失败", "请输入用户名");
 	}
 	else if (username.length() > 10)
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Username Too Long");
+		QMessageBox::information(nullptr, "注册失败", "用户名过长");
 	}
 	else if (password.isEmpty())
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Please Enter Password");
+		QMessageBox::information(nullptr, "注册失败", "请输入密码");
 	}
 	else if (password.length() > 20)
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Password Too Long");
+		QMessageBox::information(nullptr, "注册失败", "密码过长");
 	}
 	else if (password_2.isEmpty())
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Please Repeat Password");
+		QMessageBox::information(nullptr, "注册失败", "请重复密码");
 	}
 	else if (password != password_2)
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Password Does Not Match");
+		QMessageBox::information(nullptr, "注册失败", "两次密码不一致");
 	}
 	else if (contact.isEmpty())
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Please Enter Contact");
+		QMessageBox::information(nullptr, "注册失败", "请输入联系方式");
 	}
 	else if (contact.length() > 20)
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Contact Too Long");
+		QMessageBox::information(nullptr, "注册失败", "联系方式过长");
 	}
 	else if (address.isEmpty())
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Please Enter Address");
+		QMessageBox::information(nullptr, "注册失败", "请输入地址");
 	}
 	else if (address.length() > 20)
 	{
-		QMessageBox::information(nullptr, "Register Failed", "Address Too Long");
+		QMessageBox::information(nullptr, "注册失败", "地址过长");
 	}
 	else
 	{
 		if (um.userRegister(username, password, contact, address))
 		{
-			QMessageBox::information(nullptr, "info", "Register Success");
+			QMessageBox::information(nullptr, "提示", "注册成功");
 		}
 		else
 		{
-			QMessageBox::information(nullptr, "Register Failed", "Username Already Exists");
+			QMessageBox::information(nullptr, "注册失败", "用户名已存在");
 		}
 	}
 }
