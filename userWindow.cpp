@@ -123,12 +123,42 @@ void userWindow::onLogOutPushButtonClicked()
 
 void userWindow::onChangeUsernamePushButtonClicked()
 {
+	userManager um;
+	if (um.changeUserInfo(u.ID, userManager::USERNAME, ui.newValueLineEdit->text()))
+	{
+		QMessageBox::information(nullptr, "提示", "修改成功");
+		u.contact = ui.newValueLineEdit->text();
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "修改失败，存在同名用户");
+	}
 }
 
 void userWindow::onChangeContactPushButtonClicked()
 {
+	userManager um;
+	if (um.changeUserInfo(u.ID, userManager::CONTACT, ui.newValueLineEdit->text()))
+	{
+		QMessageBox::information(nullptr, "提示", "修改成功");
+		u.contact = ui.newValueLineEdit->text();
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "修改失败");
+	}
 }
 
 void userWindow::onChangeAddressPushButtonClicked()
 {
+	userManager um;
+	if (um.changeUserInfo(u.ID, userManager::ADDRESS, ui.newValueLineEdit->text()))
+	{
+		QMessageBox::information(nullptr, "提示", "修改成功");
+		u.address = ui.newValueLineEdit->text();
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "修改失败");
+	}
 }
