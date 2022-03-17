@@ -66,6 +66,11 @@ bool orderManager::compare(order o, QString qs, int type)
 	}
 }
 
+bool orderManager::newOrder(QStringList qsl)
+{
+	return false;
+}
+
 std::vector<order> orderManager::search(QString qs, int type)
 {
 	readFile();

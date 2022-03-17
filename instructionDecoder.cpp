@@ -24,6 +24,39 @@ int instructionDecoder::getType(QString qs)
 	}
 }
 
+bool instructionDecoder::modifyOperation(QString qs)
+{
+	QStringList qsl = qs.split(" ");
+	if (qsl[0] == "INSERT")
+	{
+		QStringList qsl2 = qsl[4].remove("(").remove(")").split(",");
+		if (qsl[2] == "commodity")
+		{
+			cm.newCommodity(qsl2);
+		}
+		else if (qsl[2] == "order")
+		{
+			om.newOrder(qsl2);
+		}
+		else if (qsl[2] == "user")
+		{
+			um.userRegister(qsl2[0], qsl[1], qsl[2], qsl[3]);
+		}
+		else
+		{
+			return false;
+		}
+	}
+	else if (qsl[0] == "UPDATE")
+	{
+
+	}
+	else
+	{
+		return false;
+	}
+}
+
 std::vector<commodity> instructionDecoder::selectCommodity(QString qs)
 {
 	QStringList qsl = qs.split(" ");

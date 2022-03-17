@@ -14,6 +14,7 @@ public:
 	void readFile();
 	void writeFile();
 	bool compare(order o, QString qs, int type);
+	bool newOrder(QStringList qsl);
 	std::vector<order>search(QString qs, int type);
 
 private:

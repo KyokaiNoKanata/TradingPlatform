@@ -52,6 +52,36 @@ void commodityManager::writeFile()
 	qf.close();
 }
 
+bool commodityManager::newCommodity(QStringList qsl)
+{
+	readFile();
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if ((*it).name == qsl[0])
+		{
+			return false;
+		}
+	}
+	QString ID = "M";
+	auto temp = data.size() + 1;
+	if (temp < 10)
+	{
+		ID += "00";
+	}
+	else if (temp < 100)
+	{
+		ID += "0";
+	}
+	ID += QString::number(temp);
+	qsl.insert(qsl.begin(), ID);
+	qsl.append(qdt.currentDateTime().toString("yyyy-MM-dd"));
+	qsl.append("销售中");
+	commodity c(qsl);
+	data.insert(c);
+	writeFile();
+	return true;
+}
+
 bool commodityManager::compare(commodity c, QString qs, int type)
 {
 	switch (type)
