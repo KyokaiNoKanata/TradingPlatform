@@ -1,4 +1,4 @@
-#include "instructionGenerator.h"
+﻿#include "instructionGenerator.h"
 
 QString instructionGenerator::generate(int operationType, int dataType, QStringList qsl)
 {

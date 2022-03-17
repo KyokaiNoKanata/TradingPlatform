@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include "commodityManager.h"
 #include "orderManager.h"

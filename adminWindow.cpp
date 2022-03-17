@@ -1,4 +1,4 @@
-#include "adminWindow.h"
+﻿#include "adminWindow.h"
 
 adminWindow::adminWindow(QWidget* parent) :QMainWindow(parent)
 {
@@ -27,7 +27,7 @@ void adminWindow::onCommodityViewAllPushButtonClicked()
 		ui.commodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.commodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
 		ui.commodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].price, 10, 0)));
+		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
 		ui.commodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.commodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.commodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
@@ -63,6 +63,25 @@ void adminWindow::onUserViewAllPushButtonClicked()
 		ui.userTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].address));
 		ui.userTableWidget->setItem(i, 5, new QTableWidgetItem(QString::number(data[i].balance, 10, 1)));
 		ui.userTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].status ? "已封禁" : "正常"));
+	}
+	ui.userTableWidget->resizeColumnsToContents();
+	ui.userTableWidget->resizeRowsToContents();
+}
+
+void adminWindow::onOrderViewAllPushButtonClicked()
+{
+	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::ORDER, QStringList());
+	std::vector<order>data = id.selectOrder(i);
+	ui.userTableWidget->setRowCount(data.size());
+	for (int i = 0; i < data.size(); i++)
+	{
+		ui.userTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
+		ui.userTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
+		ui.userTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price)));
+		ui.userTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.userTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].tradeTime));
+		ui.userTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
+		ui.userTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].buyerID));
 	}
 	ui.userTableWidget->resizeColumnsToContents();
 	ui.userTableWidget->resizeRowsToContents();

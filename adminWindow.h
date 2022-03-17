@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <QMainWindow>
 #include "ui_adminWindow.h"
@@ -20,6 +20,7 @@ public slots:
 	void onUserSearchPushButtonClicked();
 	void onUserBanPushButtonClicked();
 	void onUserViewAllPushButtonClicked();
+	void onOrderViewAllPushButtonClicked();
 
 private:
 	Ui::adminWindow ui;

@@ -15,10 +15,10 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QFormLayout" name="formLayout_2">
-    <item row="0" column="0" colspan="2">
+    <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -28,49 +28,49 @@
       </property>
       <widget class="QWidget" name="commodityTab">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>商品</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout">
         <item row="0" column="0">
          <widget class="QTableWidget" name="commodityTableWidget">
           <column>
            <property name="text">
-            <string>ID</string>
+            <string>商品ID</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string> name</string>
+            <string>名称</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>price</string>
+            <string>价格</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>quantity</string>
+            <string>数量</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>information</string>
+            <string>描述</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>sellerID</string>
+            <string>卖家ID</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>shelfTime</string>
+            <string>上架时间</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>status</string>
+            <string>商品状态</string>
            </property>
           </column>
          </widget>
@@ -80,14 +80,14 @@
           <item>
            <widget class="QPushButton" name="commodityVewAllPushButton">
             <property name="text">
-             <string>view all</string>
+             <string>显示所有商品</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="commodityBanPushButton">
             <property name="text">
-             <string>ban</string>
+             <string>下架商品</string>
             </property>
            </widget>
           </item>
@@ -98,20 +98,20 @@
           <item>
            <widget class="QLineEdit" name="commoditySearchLineEdit"/>
           </item>
-          <item>
-           <widget class="QPushButton" name="commoditySearchPushButton">
-            <property name="text">
-             <string>search</string>
-            </property>
-           </widget>
-          </item>
          </layout>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="commoditySearchPushButton">
+          <property name="text">
+           <string>搜索</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
       <widget class="QWidget" name="userTab">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>用户</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
@@ -123,32 +123,32 @@
           </column>
           <column>
            <property name="text">
-            <string>username</string>
+            <string>用户名</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>password</string>
+            <string>密码</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>contact</string>
+            <string>联系方式</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>address</string>
+            <string>地址</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>balance</string>
+            <string>余额</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>status</string>
+            <string>状态</string>
            </property>
           </column>
          </widget>
@@ -158,14 +158,14 @@
           <item>
            <widget class="QPushButton" name="userViewAllPushButton">
             <property name="text">
-             <string>view all</string>
+             <string>显示所有用户</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="userBanPushButton">
             <property name="text">
-             <string>ban</string>
+             <string>封禁用户</string>
             </property>
            </widget>
           </item>
@@ -176,14 +176,67 @@
           <item>
            <widget class="QLineEdit" name="userSearchLineEdit"/>
           </item>
-          <item>
-           <widget class="QPushButton" name="userSearchPushButton">
-            <property name="text">
-             <string>search</string>
-            </property>
-           </widget>
-          </item>
          </layout>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="userSearchPushButton">
+          <property name="text">
+           <string>搜索</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>订单</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <widget class="QTableWidget" name="orderTableWidget">
+          <column>
+           <property name="text">
+            <string>订单ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>商品ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>价格</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>数量</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>交易时间</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>卖家ID</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>买家ID</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="orderViewAllPushButton">
+          <property name="text">
+           <string>显示所有订单</string>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -197,14 +250,11 @@
   <tabstop>commodityTableWidget</tabstop>
   <tabstop>commodityVewAllPushButton</tabstop>
   <tabstop>commodityBanPushButton</tabstop>
-  <tabstop>commoditySearchPushButton</tabstop>
   <tabstop>commoditySearchLineEdit</tabstop>
   <tabstop>userTableWidget</tabstop>
   <tabstop>userViewAllPushButton</tabstop>
   <tabstop>userBanPushButton</tabstop>
-  <tabstop>userSearchPushButton</tabstop>
   <tabstop>userSearchLineEdit</tabstop>
-  <tabstop>tabWidget</tabstop>
  </tabstops>
  <resources/>
  <connections>
@@ -215,8 +265,8 @@
    <slot>onCommoditySearchPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>347</x>
-     <y>297</y>
+     <x>270</x>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
      <x>352</x>
@@ -231,8 +281,8 @@
    <slot>onCommodityBanPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>202</y>
+     <x>356</x>
+     <y>174</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>
@@ -247,8 +297,8 @@
    <slot>onCommodityViewAllPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>330</x>
-     <y>123</y>
+     <x>356</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
      <x>387</x>
@@ -263,8 +313,8 @@
    <slot>onUserViewAllPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>326</x>
-     <y>110</y>
+     <x>356</x>
+     <y>101</y>
     </hint>
     <hint type="destinationlabel">
      <x>385</x>
@@ -279,8 +329,8 @@
    <slot>onUserBanPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>345</x>
-     <y>206</y>
+     <x>356</x>
+     <y>174</y>
     </hint>
     <hint type="destinationlabel">
      <x>382</x>
@@ -295,12 +345,28 @@
    <slot>onUserSearchPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>333</x>
-     <y>298</y>
+     <x>270</x>
+     <y>252</y>
     </hint>
     <hint type="destinationlabel">
      <x>380</x>
      <y>324</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>orderViewAllPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>adminWindow</receiver>
+   <slot>onOrderViewAllButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>338</x>
+     <y>263</y>
     </hint>
    </hints>
   </connection>
@@ -312,5 +378,6 @@
   <slot>onUserSearchPushButtonClicked()</slot>
   <slot>onUserBanPushButtonClicked()</slot>
   <slot>onUserViewAllPushButtonClicked()</slot>
+  <slot>onOrderViewAllButtonClicked()</slot>
  </slots>
 </ui>

@@ -1,7 +1,8 @@
-#include "orderManager.h"
+﻿#include "orderManager.h"
 
 orderManager::orderManager()
 {
+	readFile();
 }
 
 orderManager::~orderManager()
@@ -10,6 +11,7 @@ orderManager::~orderManager()
 
 void orderManager::readFile()
 {
+	data.clear();
 	QFile qf("data/order.txt");
 	qf.open(QIODeviceBase::ReadOnly);
 	QTextStream qts(&qf);
@@ -66,6 +68,7 @@ bool orderManager::compare(order o, QString qs, int type)
 
 std::vector<order> orderManager::search(QString qs, int type)
 {
+	readFile();
 	std::vector<order>res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{

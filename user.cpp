@@ -1,4 +1,4 @@
-#include "user.h"
+﻿#include "user.h"
 
 user::user(QStringList qsl)
 {

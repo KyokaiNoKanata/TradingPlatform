@@ -1,4 +1,4 @@
-#include "calculatorWindow.h"
+﻿#include "calculatorWindow.h"
 
 calculatorWindow::calculatorWindow(QWidget* parent) :QWidget(parent)
 {

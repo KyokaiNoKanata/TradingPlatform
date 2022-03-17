@@ -1,4 +1,4 @@
-#include "commodity.h"
+﻿#include "commodity.h"
 
 commodity::commodity(QStringList qsl)
 {

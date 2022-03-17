@@ -1,4 +1,4 @@
-#include "registerWindow.h"
+﻿#include "registerWindow.h"
 
 registerWindow::registerWindow(QWidget* parent) :QWidget(parent)
 {

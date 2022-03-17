@@ -1,4 +1,4 @@
-#include "userManager.h"
+﻿#include "userManager.h"
 
 userManager::userManager()
 {
@@ -13,6 +13,7 @@ userManager::~userManager()
 
 void userManager::readFile()
 {
+	data.clear();
 	QFile qf("data/user.txt");
 	qf.open(QIODeviceBase::ReadOnly);
 	QTextStream qts(&qf);
@@ -195,6 +196,7 @@ bool userManager::compare(user u, QString qs, int type)
 
 std::vector<user> userManager::search(QString qs, int type)
 {
+	readFile();
 	std::vector<user>res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{

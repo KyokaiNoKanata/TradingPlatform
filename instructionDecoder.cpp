@@ -1,4 +1,4 @@
-#include "instructionDecoder.h"
+﻿#include "instructionDecoder.h"
 
 int instructionDecoder::getType(QString qs)
 {
@@ -40,7 +40,16 @@ std::vector<commodity> instructionDecoder::selectCommodity(QString qs)
 
 std::vector<order> instructionDecoder::selectOrder(QString qs)
 {
-	return std::vector<order>();
+	QStringList qsl = qs.split(" ");
+	if (qsl.size() == 4)
+	{
+		return om.search(QString(), userManager::NONE);
+	}
+	else
+	{
+		int type = getOrderElementType(qsl[5]);
+		return om.search(qsl[7], type);
+	}
 }
 
 std::vector<user> instructionDecoder::selectUser(QString qs)
@@ -99,7 +108,38 @@ int instructionDecoder::getCommodityElementType(QString qs)
 
 int instructionDecoder::getOrderElementType(QString qs)
 {
-	return 0;
+	if (qs == "ID")
+	{
+		return orderManager::ID;
+	}
+	else if (qs == "commodityID")
+	{
+		return orderManager::COMMODITY_ID;
+	}
+	else if (qs == "price")
+	{
+		return orderManager::PRICE;
+	}
+	else if (qs == "quantity")
+	{
+		return orderManager::QUANTITY;
+	}
+	else if (qs == "tradeTime")
+	{
+		return orderManager::TRADE_TIME;
+	}
+	else if (qs == "sellerID")
+	{
+		return orderManager::SELLER_ID;
+	}
+	else if (qs == "buyerID")
+	{
+		return orderManager::BUYER_ID;
+	}
+	else
+	{
+		return orderManager::NONE;
+	}
 }
 
 int instructionDecoder::getUserElementType(QString qs)

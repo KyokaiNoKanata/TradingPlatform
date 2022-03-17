@@ -1,4 +1,4 @@
-#include "commodityManager.h"
+﻿#include "commodityManager.h"
 
 commodityManager::commodityManager()
 {
@@ -11,6 +11,7 @@ commodityManager::~commodityManager()
 
 void commodityManager::readFile()
 {
+	data.clear();
 	QFile qf("data/commodity.txt");
 	qf.open(QIODeviceBase::ReadOnly);
 	QTextStream qts(&qf);
@@ -78,6 +79,7 @@ bool commodityManager::compare(commodity c, QString qs, int type)
 
 std::vector<commodity> commodityManager::search(QString qs, int type)
 {
+	readFile();
 	std::vector<commodity>res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
