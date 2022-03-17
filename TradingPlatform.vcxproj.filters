@@ -82,6 +82,9 @@
     <ClCompile Include="userWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="commodityModifyWidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="userManager.h">
@@ -128,6 +131,9 @@
     <QtMoc Include="userWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="commodityModifyWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="adminWindow.ui">
@@ -140,6 +146,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="userWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="commodityModifyWidget.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

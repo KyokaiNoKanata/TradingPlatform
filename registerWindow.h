@@ -3,6 +3,8 @@
 #include <QWidget>
 #include <QMessageBox>
 #include "userManager.h"
+#include "instructionGenerator.h"
+#include "instructionDecoder.h"
 #include "ui_registerWindow.h"
 
 class registerWindow :public QWidget
@@ -18,5 +20,7 @@ public slots:
 
 private:
 	Ui::registerWindow ui;
-	userManager um;
+	QString i;
+	instructionGenerator ig;
+	instructionDecoder id;
 };

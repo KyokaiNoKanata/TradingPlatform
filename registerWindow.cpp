@@ -58,7 +58,11 @@ void registerWindow::onRegisterButtonClicked()
 	}
 	else
 	{
-		if (um.userRegister(username, password, contact, address))
+		userManager um;
+		QString ID = um.getNextID();
+		QStringList qsl = { ID,username,password,contact,address,QString::number(0,10,1),"正常" };
+		i = ig.generate(instructionGenerator::INSERT, instructionGenerator::USER, qsl);
+		if (id.modifyOperation(i))
 		{
 			QMessageBox::information(nullptr, "提示", "注册成功");
 		}

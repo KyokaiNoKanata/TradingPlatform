@@ -7,6 +7,7 @@ orderManager::orderManager()
 
 orderManager::~orderManager()
 {
+	data.clear();
 }
 
 void orderManager::readFile()
@@ -68,7 +69,10 @@ bool orderManager::compare(order o, QString qs, int type)
 
 bool orderManager::newOrder(QStringList qsl)
 {
-	return false;
+	order o(qsl);
+	data.push_back(o);
+	writeFile();
+	return true;
 }
 
 std::vector<order> orderManager::search(QString qs, int type)
@@ -83,4 +87,20 @@ std::vector<order> orderManager::search(QString qs, int type)
 		}
 	}
 	return res;
+}
+
+QString orderManager::getNextID()
+{
+	QString ID = "T";
+	auto temp = data.size() + 1;
+	if (temp < 10)
+	{
+		ID += "00";
+	}
+	else if (temp < 100)
+	{
+		ID += "0";
+	}
+	ID += QString::number(temp);
+	return ID;
 }

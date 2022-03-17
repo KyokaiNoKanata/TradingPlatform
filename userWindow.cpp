@@ -12,7 +12,7 @@ userWindow::~userWindow()
 
 void userWindow::onBuyerSearchPushButtonClicked()
 {
-	QString typeMap[] = { "ID" ,"name","price","quantity","information","sellerID","shelfTime","status" };
+	QString typeMap[] = { "ID","name","price","quantity","information","sellerID","shelfTime","status" };
 	QStringList qsl;
 	qsl.append(typeMap[ui.buyerCommodityTableWidget->currentColumn()]);
 	qsl.append(ui.buyerSearchLineEdit->text());
@@ -135,6 +135,10 @@ void userWindow::onSellerNewCommodityPushButtonClicked()
 
 void userWindow::onSellerModifyPushButtonClicked()
 {
+	int row = ui.sellerCommodityTableWidget->currentRow();
+	QString ID = ui.sellerCommodityTableWidget->item(row, 0)->text();
+	auto cmw = new commodityModifyWidget(ID);
+	cmw->show();
 }
 
 void userWindow::onSellerBanPushButtonClicked()

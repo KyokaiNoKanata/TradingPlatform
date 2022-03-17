@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>commodityModifyWidget</class>
+ <widget class="QWidget" name="commodityModifyWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>修改商品属性</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLineEdit" name="lineEdit"/>
+   </item>
+   <item>
+    <widget class="QPushButton" name="priceModifyPushButton">
+     <property name="text">
+      <string>修改价格</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="infoModifyPushButton">
+     <property name="text">
+      <string>修改描述</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit</tabstop>
+  <tabstop>priceModifyPushButton</tabstop>
+  <tabstop>infoModifyPushButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>priceModifyPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>commodityModifyWidget</receiver>
+   <slot>onPriceModifyPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>161</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>169</x>
+     <y>187</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>infoModifyPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>commodityModifyWidget</receiver>
+   <slot>onInfoModifyPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>226</x>
+     <y>231</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>245</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onPriceModifyPushButtonClicked()</slot>
+  <slot>onInfoModifyPushButtonClicked()</slot>
+ </slots>
+</ui>

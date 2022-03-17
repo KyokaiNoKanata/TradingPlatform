@@ -7,6 +7,7 @@ commodityManager::commodityManager()
 
 commodityManager::~commodityManager()
 {
+	data.clear();
 }
 
 void commodityManager::readFile()
@@ -52,16 +53,8 @@ void commodityManager::writeFile()
 	qf.close();
 }
 
-bool commodityManager::newCommodity(QStringList qsl)
+QString commodityManager::getNextID()
 {
-	readFile();
-	for (auto it = data.begin(); it != data.end(); it++)
-	{
-		if ((*it).name == qsl[0])
-		{
-			return false;
-		}
-	}
 	QString ID = "M";
 	auto temp = data.size() + 1;
 	if (temp < 10)
@@ -73,9 +66,19 @@ bool commodityManager::newCommodity(QStringList qsl)
 		ID += "0";
 	}
 	ID += QString::number(temp);
-	qsl.insert(qsl.begin(), ID);
-	qsl.append(qdt.currentDateTime().toString("yyyy-MM-dd"));
-	qsl.append("销售中");
+	return ID;
+}
+
+bool commodityManager::newCommodity(QStringList qsl)
+{
+	readFile();
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if ((*it).name == qsl[0])
+		{
+			return false;
+		}
+	}
 	commodity c(qsl);
 	data.insert(c);
 	writeFile();

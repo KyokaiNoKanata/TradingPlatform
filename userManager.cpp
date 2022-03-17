@@ -50,7 +50,7 @@ void userManager::writeFile()
 		{
 			temp = "封禁";
 		}
-		qts << '\n' << (*it).ID << ',' << (*it).username << ',' << (*it).password << ',' << (*it).contact << ',' << (*it).address << ',' << (*it).balance << ',' << temp;
+		qts << '\n' << (*it).ID << ',' << (*it).username << ',' << (*it).password << ',' << (*it).contact << ',' << (*it).address << ',' << QString::number((*it).balance, 10, 1) << ',' << temp;
 	}
 	qf.close();
 }

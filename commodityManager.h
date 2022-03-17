@@ -15,6 +15,7 @@ public:
 	enum elementType { ID, NAME, PRICE, QUANTITY, INFORMATION, SELLER_ID, SHELF_TIME, STATUS, NONE };
 	void readFile();
 	void writeFile();
+	QString getNextID();
 	bool newCommodity(QStringList qsl);
 	bool compare(commodity c, QString qs, int type);
 	std::vector<commodity>search(QString qs, int type);

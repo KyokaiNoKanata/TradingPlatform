@@ -40,7 +40,7 @@ bool instructionDecoder::modifyOperation(QString qs)
 		}
 		else if (qsl[2] == "user")
 		{
-			return um.userRegister(qsl2[0], qsl[1], qsl[2], qsl[3]);
+			return um.userRegister(qsl2[1], qsl2[2], qsl2[3], qsl2[4]);
 		}
 		else
 		{

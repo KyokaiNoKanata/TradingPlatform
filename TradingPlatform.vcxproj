@@ -96,6 +96,7 @@
     <ClCompile Include="calculatorWindow.cpp" />
     <ClCompile Include="commodity.cpp" />
     <ClCompile Include="commodityManager.cpp" />
+    <ClCompile Include="commodityModifyWidget.cpp" />
     <ClCompile Include="expressionGenerator.cpp" />
     <ClCompile Include="instructionDecoder.cpp" />
     <ClCompile Include="instructionGenerator.cpp" />
@@ -117,6 +118,7 @@
     <QtRcc Include="login.qrc" />
     <QtUic Include="adminWindow.ui" />
     <QtUic Include="calculatorWindow.ui" />
+    <QtUic Include="commodityModifyWidget.ui" />
     <QtUic Include="login.ui" />
     <QtMoc Include="login.h" />
     <ClCompile Include="login.cpp" />
@@ -131,6 +133,7 @@
     <QtMoc Include="calculatorWindow.h" />
     <ClInclude Include="commodity.h" />
     <ClInclude Include="commodityManager.h" />
+    <QtMoc Include="commodityModifyWidget.h" />
     <ClInclude Include="expressionGenerator.h" />
     <ClInclude Include="instructionDecoder.h" />
     <ClInclude Include="instructionGenerator.h" />
