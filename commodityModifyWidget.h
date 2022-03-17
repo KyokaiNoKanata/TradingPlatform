@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <QWidget>
+#include <QMessageBox>
 #include "instructionGenerator.h"
 #include "instructionDecoder.h"
 #include "ui_commodityModifyWidget.h"
@@ -19,4 +20,8 @@ private slots:
 
 private:
 	Ui::commodityModifyWidget ui;
+	QString ID;
+	QString i;
+	instructionGenerator ig;
+	instructionDecoder id;
 };
