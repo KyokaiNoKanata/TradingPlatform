@@ -94,6 +94,8 @@
     <ClCompile Include="adminWindow.cpp" />
     <ClCompile Include="calculator.cpp" />
     <ClCompile Include="calculatorWindow.cpp" />
+    <ClCompile Include="charge.cpp" />
+    <ClCompile Include="chargeManager.cpp" />
     <ClCompile Include="commodity.cpp" />
     <ClCompile Include="commodityManager.cpp" />
     <ClCompile Include="commodityModifyWidget.cpp" />
@@ -133,6 +135,8 @@
     <QtMoc Include="adminWindow.h" />
     <ClInclude Include="calculator.h" />
     <QtMoc Include="calculatorWindow.h" />
+    <ClInclude Include="charge.h" />
+    <ClInclude Include="chargeManager.h" />
     <ClInclude Include="commodity.h" />
     <ClInclude Include="commodityManager.h" />
     <QtMoc Include="commodityModifyWidget.h" />

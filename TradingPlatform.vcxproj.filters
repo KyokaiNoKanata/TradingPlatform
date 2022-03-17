@@ -88,6 +88,12 @@
     <ClCompile Include="newCommodityWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="chargeManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="charge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="userManager.h">
@@ -118,6 +124,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="instructionDecoder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chargeManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="charge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
