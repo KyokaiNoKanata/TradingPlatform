@@ -49,16 +49,25 @@ bool instructionDecoder::modifyOperation(QString qs)
 	}
 	else if (qsl[0] == "UPDATE")
 	{
+		int searchType;
+		int modifyType;
+		QString searchElement = qsl[9];
+		QString modifyElement = qsl[5];
 		if (qsl[1] == "commodity")
 		{
-
+			searchType = getCommodityElementType(qsl[7]);
+			modifyType = getCommodityElementType(qsl[3]);
 		}
 		else if (qsl[1] == "order")
 		{
-
+			searchType = getOrderElementType(qsl[7]);
+			modifyType = getCommodityElementType(qsl[3]);
 		}
 		else if (qsl[1] == "user")
 		{
+			searchType = getUserElementType(qsl[7]);
+			modifyType = getUserElementType(qsl[3]);
+			return um.getAndModify(searchType, searchElement, modifyType, modifyElement);
 		}
 		else
 		{

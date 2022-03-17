@@ -15,6 +15,22 @@ void adminWindow::onCommoditySearchPushButtonClicked()
 
 void adminWindow::onCommodityBanPushButtonClicked()
 {
+	int row = ui.orderTableWidget->currentRow();
+	QString ID = ui.orderTableWidget->item(row, 0)->text();
+	QStringList qsl;
+	qsl.append("ID");
+	qsl.append(ID);
+	qsl.append("status");
+	qsl.append("BANNED");
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
+	if (id.modifyOperation(i))
+	{
+		QMessageBox::information(nullptr, "提示", "下架成功");
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "下架失败");
+	}
 }
 
 void adminWindow::onCommodityViewAllPushButtonClicked()
@@ -50,8 +66,15 @@ void adminWindow::onUserBanPushButtonClicked()
 	qsl.append(ID);
 	qsl.append("status");
 	qsl.append("BANNED");
-	QString qs = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
-	id.modifyOperation(qs);
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	if (id.modifyOperation(i))
+	{
+		QMessageBox::information(nullptr, "提示", "封禁成功");
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "封禁失败");
+	}
 }
 
 void adminWindow::onUserViewAllPushButtonClicked()
@@ -67,7 +90,7 @@ void adminWindow::onUserViewAllPushButtonClicked()
 		ui.userTableWidget->setItem(i, 3, new QTableWidgetItem(data[i].contact));
 		ui.userTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].address));
 		ui.userTableWidget->setItem(i, 5, new QTableWidgetItem(QString::number(data[i].balance, 10, 1)));
-		ui.userTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].status ? "已封禁" : "正常"));
+		ui.userTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].status ? "封禁" : "正常"));
 	}
 	ui.userTableWidget->resizeColumnsToContents();
 	ui.userTableWidget->resizeRowsToContents();

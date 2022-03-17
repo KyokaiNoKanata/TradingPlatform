@@ -119,7 +119,7 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 		u.address = newValue;
 		break;
 	case STATUS:
-		u.status = newValue.toInt();
+		u.status = newValue == "BANNED";
 		break;
 	default:
 		return false;
@@ -226,4 +226,23 @@ user userManager::getUser(QString username)
 		}
 	}
 	return user();
+}
+
+bool userManager::getAndModify(int searchType, QString searchElement, int modityType, QString modifyElement)
+{
+	if (searchType == ID)
+	{
+		return changeUserInfo(searchElement, modityType, modifyElement);
+	}
+	else
+	{
+		for (auto it = data.begin(); it != data.end(); it++)
+		{
+			if (compare(*it, searchElement, searchType))
+			{
+				return changeUserInfo((*it).ID, modityType, modifyElement);
+			}
+		}
+	}
+	return false;
 }

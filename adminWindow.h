@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <QMainWindow>
+#include <QMessageBox>
 #include "ui_adminWindow.h"
 #include "instructionGenerator.h"
 #include "instructionDecoder.h"

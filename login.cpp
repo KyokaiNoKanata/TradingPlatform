@@ -35,10 +35,18 @@ void login::onLoginButtonClicked()
 		{
 			if (userLogin())
 			{
-				QMessageBox::information(nullptr, "提示", "登录成功");
-				auto uw = new userWindow(um.getUser(ui.usernameLineEdit->text()));
-				uw->show();
-				this->close();
+				user u = um.getUser(ui.usernameLineEdit->text());
+				if (u.status == user::NORMAL)
+				{
+					QMessageBox::information(nullptr, "提示", "登录成功");
+					auto uw = new userWindow(u);
+					uw->show();
+					this->close();
+				}
+				else
+				{
+					QMessageBox::information(nullptr, "登录失败", "您已被封禁");
+				}
 			}
 			else
 			{

@@ -19,7 +19,7 @@ user::user(QStringList qsl)
 	this->contact = qsl[3];
 	this->address = qsl[4];
 	this->balance = qsl[5].toDouble();
-	this->status = qsl[6].toInt();
+	this->status = qsl[6] == "封禁";
 }
 
 user::user(QString ID, QString username, QString password, QString contact, QString address, double balance, int status)

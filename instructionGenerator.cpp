@@ -35,14 +35,8 @@ QString instructionGenerator::generate(int operationType, int dataType, QStringL
 	case UPDATE:
 		res = "UPDATE " + qs + " SET ";
 		qs = "WHERE " + qsl[0] + " = " + qsl[1];
-		for (int i = 2; i < qsl.size(); i += 2)
-		{
-			if (i != 2)
-			{
-				res.append(", ");
-			}
-			res.append(qsl[i] + " = " + qsl[i + 1]);
-		}
+		res.append(qsl[2] + " = " + qsl[3]);
+		res.append(" ");
 		res.append(qs);
 		break;
 	case SELECT:
