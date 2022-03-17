@@ -119,7 +119,17 @@ bool userManager::changeUserInfo(QString ID, int type, QString newValue)
 		u.address = newValue;
 		break;
 	case STATUS:
-		u.status = newValue == "BANNED";
+		if (newValue == "BANNED")
+		{
+			if (u.status == user::BANNED)
+			{
+				return false;
+			}
+			else
+			{
+				u.status = user::BANNED;
+			}
+		}
 		break;
 	default:
 		return false;
