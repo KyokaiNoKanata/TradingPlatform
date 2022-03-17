@@ -13,7 +13,7 @@ QString expressionGenerator::generate()
 {
 	QString qs1 = fromCharge(),
 		qs2 = fromOrder();
-	if (!qs1.isEmpty() && !qs2.isEmpty())
+	if (!qs1.isEmpty() && !qs2.isEmpty() && qs2[0] != '-')
 	{
 		return qs1 + "+" + qs2;
 	}

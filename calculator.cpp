@@ -30,7 +30,7 @@ QString calculator::calculate(QString expression)
 			}
 			if ((symbolStack.isEmpty() && dataStack.isEmpty() || !symbolStack.isEmpty() && symbolStack.top() == '(' && prevType == SYMBOL) && *it == '-')
 			{
-				pushSybmol('_');
+				pushSymbol('_');
 			}
 			else
 			{
@@ -38,7 +38,7 @@ QString calculator::calculate(QString expression)
 				{
 					return "ERROR 1: 符号误用";
 				}
-				else if (!pushSybmol(*it))
+				else if (!pushSymbol(*it))
 				{
 					return "ERROR 4: 数学错误";
 				}
@@ -155,11 +155,13 @@ bool calculator::symbolCheck(QChar qc)
 	return qc == '+' || qc == '-' || qc == '*' || qc == '/' || qc == '(' || qc == ')';
 }
 
-bool calculator::pushSybmol(QChar qc)
+bool calculator::pushSymbol(QChar qc)
 {
 	if (qc == ')')
 	{
-		return tidy();
+		bool temp = tidy();
+		symbolStack.pop();
+		return temp;
 	}
 	else if (!symbolStack.isEmpty() && symbolStack.top() != '(' && priority(symbolStack.top()) >= priority(qc))
 	{
@@ -188,6 +190,7 @@ bool calculator::tidy()
 			qc = symbolStack.pop();
 			if (qc == '(')
 			{
+				symbolStack.push(qc);
 				return true;
 			}
 			else

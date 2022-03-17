@@ -16,10 +16,11 @@ private:
 	QStack<double>dataStack;
 	enum typeFlag { SYMBOL, NUMBER };
 	bool prevType;
+	bool negFlag;
 	void init();
 	int priority(QChar qc);
 	double singleCalculate(double d1, double d2, QChar qc);
 	bool symbolCheck(QChar qc);
-	bool pushSybmol(QChar qc);
+	bool pushSymbol(QChar qc);
 	bool tidy();
 };

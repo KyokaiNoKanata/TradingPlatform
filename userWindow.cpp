@@ -75,15 +75,17 @@ void userWindow::onBuyerBuyPushButtonClicked()
 				i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
 				id.modifyOperation(i);
 			}
+			ui.buyerCommodityTableWidget->setItem(ui.buyerCommodityTableWidget->currentRow(), 3, new QTableWidgetItem(QString::number(quantity - buyQuantity)));
 			u.balance -= buyQuantity * price;
 			qsl.clear();
 			qsl = { "ID",u.ID,"balance",QString::number(u.balance,10,1) };
 			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+			id.modifyOperation(i);
 			userManager um;
 			user seller = um.getUserByID(sellerID);
 			seller.balance += buyQuantity + price;
 			qsl.clear();
-			qsl = { "ID",u.ID,"balance",QString::number(seller.balance,10,1) };
+			qsl = { "ID",seller.ID,"balance",QString::number(seller.balance,10,1) };
 			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
 			id.modifyOperation(i);
 			orderManager om;
