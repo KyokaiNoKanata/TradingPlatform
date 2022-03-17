@@ -113,6 +113,7 @@
     </ClCompile>
     <ClCompile Include="user.cpp" />
     <ClCompile Include="userManager.cpp" />
+    <ClCompile Include="userWindow.cpp" />
     <QtRcc Include="login.qrc" />
     <QtUic Include="adminWindow.ui" />
     <QtUic Include="calculatorWindow.ui" />
@@ -121,8 +122,10 @@
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="registerWindow.ui" />
+    <QtUic Include="userWindow.ui" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="userWindow.h" />
     <QtMoc Include="adminWindow.h" />
     <ClInclude Include="calculator.h" />
     <QtMoc Include="calculatorWindow.h" />
