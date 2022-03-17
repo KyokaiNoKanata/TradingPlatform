@@ -11,6 +11,26 @@ adminWindow::~adminWindow()
 
 void adminWindow::onCommoditySearchPushButtonClicked()
 {
+	QString typeMap[] = { "ID" ,"name","price","quantity","information","sellerID","shelfTime","status" };
+	QStringList qsl;
+	qsl.append(typeMap[ui.commodityTableWidget->currentColumn()]);
+	qsl.append(ui.commoditySearchLineEdit->text());
+	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::COMMODITY, qsl);
+	std::vector<commodity>data = id.selectCommodity(i);
+	ui.commodityTableWidget->setRowCount(data.size());
+	for (int i = 0; i < data.size(); i++)
+	{
+		ui.commodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
+		ui.commodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
+		ui.commodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
+		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.commodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
+		ui.commodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
+		ui.commodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
+		ui.commodityTableWidget->setItem(i, 7, new QTableWidgetItem(data[i].status != commodity::NORMAL ? "已下架" : "销售中"));
+	}
+	ui.commodityTableWidget->resizeColumnsToContents();
+	ui.commodityTableWidget->resizeRowsToContents();
 }
 
 void adminWindow::onCommodityBanPushButtonClicked()

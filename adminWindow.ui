@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>adminWindow</string>
+   <string>管理员窗口</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -95,6 +95,41 @@
            <widget class="QPushButton" name="commodityBanPushButton">
             <property name="text">
              <string>下架商品</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>提示：搜索前</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>请先点击相应</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>属性所在的行</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>，在表格为空</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>时请勿使用。</string>
             </property>
            </widget>
           </item>
@@ -229,12 +264,17 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <tabstops>
+  <tabstop>tabWidget</tabstop>
   <tabstop>commodityTableWidget</tabstop>
   <tabstop>commodityVewAllPushButton</tabstop>
   <tabstop>commodityBanPushButton</tabstop>
+  <tabstop>commoditySearchLineEdit</tabstop>
+  <tabstop>commoditySearchPushButton</tabstop>
   <tabstop>userTableWidget</tabstop>
   <tabstop>userViewAllPushButton</tabstop>
   <tabstop>userBanPushButton</tabstop>
+  <tabstop>orderTableWidget</tabstop>
+  <tabstop>orderViewAllPushButton</tabstop>
  </tabstops>
  <resources/>
  <connections>
