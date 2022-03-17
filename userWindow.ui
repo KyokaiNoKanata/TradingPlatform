@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>370</width>
-    <height>266</height>
+    <height>306</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,38 +30,6 @@
        <layout class="QGridLayout" name="gridLayout">
         <item row="2" column="0">
          <widget class="QLineEdit" name="buyerSearchLineEdit"/>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="buyerSearchPushButton">
-          <property name="text">
-           <string>搜索</string>
-          </property>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <widget class="QPushButton" name="buyerViewAllPushButton">
-            <property name="text">
-             <string>显示在架商品</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="buyerBuyPushButton">
-            <property name="text">
-             <string>购买商品</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="logOutPushButton">
-            <property name="text">
-             <string>注销</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
         <item row="0" column="0">
          <widget class="QTableWidget" name="buyerCommodityTableWidget">
@@ -105,6 +73,73 @@
             <string>状态</string>
            </property>
           </column>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QPushButton" name="buyerViewAllPushButton">
+            <property name="text">
+             <string>显示在架商品</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="buyerBuyPushButton">
+            <property name="text">
+             <string>购买商品</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="logOutPushButton">
+            <property name="text">
+             <string>注销</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>提示：搜索前</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>请先点击相应</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>属性所在的行</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>，在表格为空</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>时请勿使用。</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="buyerSearchPushButton">
+          <property name="text">
+           <string>搜索</string>
+          </property>
          </widget>
         </item>
        </layout>
@@ -236,10 +271,24 @@
           </column>
          </widget>
         </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="buyerShowOrderPushButton">
+          <property name="text">
+           <string>我买到的商品</string>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="0">
          <widget class="QPushButton" name="showOrderPushButton">
           <property name="text">
            <string>查看订单</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="sellerShowOrderPushButton">
+          <property name="text">
+           <string>我卖出的商品</string>
           </property>
          </widget>
         </item>
@@ -305,8 +354,8 @@
    <slot>onBuyerSearchPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>320</x>
-     <y>246</y>
+     <x>357</x>
+     <y>291</y>
     </hint>
     <hint type="destinationlabel">
      <x>332</x>
@@ -322,10 +371,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>356</x>
-     <y>138</y>
+     <y>72</y>
     </hint>
     <hint type="destinationlabel">
-     <x>367</x>
+     <x>352</x>
      <y>196</y>
     </hint>
    </hints>
@@ -338,10 +387,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>356</x>
-     <y>83</y>
+     <y>50</y>
     </hint>
     <hint type="destinationlabel">
-     <x>368</x>
+     <x>352</x>
      <y>102</y>
     </hint>
    </hints>
@@ -354,10 +403,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>316</x>
-     <y>60</y>
+     <y>68</y>
     </hint>
     <hint type="destinationlabel">
-     <x>365</x>
+     <x>352</x>
      <y>79</y>
     </hint>
    </hints>
@@ -370,10 +419,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>316</x>
-     <y>109</y>
+     <y>125</y>
     </hint>
     <hint type="destinationlabel">
-     <x>365</x>
+     <x>352</x>
      <y>138</y>
     </hint>
    </hints>
@@ -386,10 +435,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>316</x>
-     <y>158</y>
+     <y>182</y>
     </hint>
     <hint type="destinationlabel">
-     <x>368</x>
+     <x>352</x>
      <y>188</y>
     </hint>
    </hints>
@@ -402,10 +451,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>316</x>
-     <y>207</y>
+     <y>239</y>
     </hint>
     <hint type="destinationlabel">
-     <x>367</x>
+     <x>352</x>
      <y>234</y>
     </hint>
    </hints>
@@ -418,10 +467,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>99</x>
-     <y>110</y>
+     <y>126</y>
     </hint>
     <hint type="destinationlabel">
-     <x>381</x>
+     <x>352</x>
      <y>4</y>
     </hint>
    </hints>
@@ -434,10 +483,10 @@
    <hints>
     <hint type="sourcelabel">
      <x>99</x>
-     <y>159</y>
+     <y>183</y>
     </hint>
     <hint type="destinationlabel">
-     <x>393</x>
+     <x>352</x>
      <y>179</y>
     </hint>
    </hints>
@@ -450,7 +499,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>99</x>
-     <y>206</y>
+     <y>238</y>
     </hint>
     <hint type="destinationlabel">
      <x>314</x>
@@ -465,11 +514,11 @@
    <slot>onLogOutPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>340</x>
-     <y>183</y>
+     <x>356</x>
+     <y>94</y>
     </hint>
     <hint type="destinationlabel">
-     <x>366</x>
+     <x>352</x>
      <y>34</y>
     </hint>
    </hints>
@@ -481,12 +530,44 @@
    <slot>onShowOrderPushButtonClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>121</x>
-     <y>240</y>
+     <x>99</x>
+     <y>224</y>
     </hint>
     <hint type="destinationlabel">
      <x>106</x>
      <y>270</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buyerShowOrderPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onBuyerShowOrderPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>2</x>
+     <y>254</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sellerShowOrderPushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>userWindow</receiver>
+   <slot>onSellerShowOrderPushButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>99</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>4</x>
+     <y>239</y>
     </hint>
    </hints>
   </connection>
@@ -504,5 +585,7 @@
   <slot>onChangeContactPushButtonClicked()</slot>
   <slot>onChangeAddressPushButtonClicked()</slot>
   <slot>onLogOutPushButtonClicked()</slot>
+  <slot>onBuyerShowOrderPushButtonClicked()</slot>
+  <slot>onSellerShowOrderPushButtonClicked()</slot>
  </slots>
 </ui>

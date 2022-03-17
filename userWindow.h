@@ -27,6 +27,8 @@ public slots:
 	void onChangeUsernamePushButtonClicked();
 	void onChangeContactPushButtonClicked();
 	void onChangeAddressPushButtonClicked();
+	void onBuyerShowOrderPushButtonClicked();
+	void onSellerShowOrderPushButtonClicked();
 
 private:
 	Ui::userWindow ui;
