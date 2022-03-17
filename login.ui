@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>232</width>
-    <height>208</height>
+    <width>189</width>
+    <height>179</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>login</string>
+   <string>登录界面</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -20,7 +20,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="usernameLabel">
         <property name="text">
-         <string>username</string>
+         <string>用户名</string>
         </property>
        </widget>
       </item>
@@ -30,7 +30,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="passwordLabel">
         <property name="text">
-         <string>password</string>
+         <string>密码</string>
         </property>
        </widget>
       </item>
@@ -40,7 +40,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>mode</string>
+         <string>模式</string>
         </property>
        </widget>
       </item>
@@ -49,14 +49,14 @@
         <item>
          <widget class="QRadioButton" name="adminModeRadioButton">
           <property name="text">
-           <string>admin</string>
+           <string>管理员</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QRadioButton" name="userModeRadioButton">
           <property name="text">
-           <string>user</string>
+           <string>用户</string>
           </property>
          </widget>
         </item>
@@ -65,14 +65,14 @@
       <item row="3" column="0">
        <widget class="QPushButton" name="registerButton">
         <property name="text">
-         <string>register</string>
+         <string>注册</string>
         </property>
        </widget>
       </item>
       <item row="3" column="1">
        <widget class="QPushButton" name="loginButton">
         <property name="text">
-         <string>login</string>
+         <string>登录</string>
         </property>
        </widget>
       </item>
@@ -81,7 +81,7 @@
     <item>
      <widget class="QPushButton" name="calculatorPushButton">
       <property name="text">
-       <string>calculator</string>
+       <string>计算器接口</string>
       </property>
      </widget>
     </item>
@@ -92,8 +92,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>232</width>
-     <height>22</height>
+     <width>189</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>
