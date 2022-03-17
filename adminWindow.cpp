@@ -23,7 +23,7 @@ void adminWindow::onCommoditySearchPushButtonClicked()
 		ui.commodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.commodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
 		ui.commodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.commodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.commodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.commodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
@@ -63,7 +63,7 @@ void adminWindow::onCommodityViewAllPushButtonClicked()
 		ui.commodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.commodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
 		ui.commodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.commodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.commodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.commodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.commodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
@@ -126,7 +126,7 @@ void adminWindow::onOrderViewAllPushButtonClicked()
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
 		ui.orderTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.orderTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].tradeTime));
 		ui.orderTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.orderTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].buyerID));

@@ -38,6 +38,7 @@ private:
 	Ui::userWindow ui;
 	user u;
 	QString i;
+	QDateTime qdt;
 	instructionGenerator ig;
 	instructionDecoder id;
 };

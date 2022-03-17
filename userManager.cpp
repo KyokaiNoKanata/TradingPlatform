@@ -241,6 +241,18 @@ user userManager::getUser(QString username)
 	return user();
 }
 
+user userManager::getUserByID(QString ID)
+{
+	for (auto it = data.begin(); it != data.end(); it++)
+	{
+		if ((*it).ID == ID)
+		{
+			return *it;
+		}
+	}
+	return user();
+}
+
 bool userManager::getAndModify(int searchType, QString searchElement, int modityType, QString modifyElement)
 {
 	if (searchType == ID)

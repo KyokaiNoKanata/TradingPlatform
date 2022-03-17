@@ -32,7 +32,7 @@ void userWindow::onBuyerSearchPushButtonClicked()
 		ui.buyerCommodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.buyerCommodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
 		ui.buyerCommodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.buyerCommodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.buyerCommodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10)));
 		ui.buyerCommodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.buyerCommodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.buyerCommodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
@@ -44,6 +44,56 @@ void userWindow::onBuyerSearchPushButtonClicked()
 
 void userWindow::onBuyerBuyPushButtonClicked()
 {
+	if (ui.quantityLineEdit->text().isEmpty())
+	{
+		QMessageBox::information(nullptr, "购买失败", "请填写购买数量");
+	}
+	int buyQuantity = ui.quantityLineEdit->text().toInt();
+	int price = ui.buyerCommodityTableWidget->item(ui.buyerCommodityTableWidget->currentRow(), 2)->text().toDouble();
+	int quantity = ui.buyerCommodityTableWidget->item(ui.buyerCommodityTableWidget->currentRow(), 3)->text().toInt();
+	QString commodityID = ui.buyerCommodityTableWidget->item(ui.buyerCommodityTableWidget->currentRow(), 0)->text();
+	QString sellerID = ui.buyerCommodityTableWidget->item(ui.buyerCommodityTableWidget->currentRow(), 5)->text();
+	if (buyQuantity > quantity)
+	{
+		QMessageBox::information(nullptr, "购买失败", "欲购买的数量超出商品数量");
+	}
+	else
+	{
+		if (buyQuantity * price > u.balance)
+		{
+			QMessageBox::information(nullptr, "购买失败", "余额不足");
+		}
+		else
+		{
+			QStringList qsl = { "ID",commodityID,"quantity",QString::number(quantity - buyQuantity,10,0) };
+			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
+			id.modifyOperation(i);
+			if (quantity == buyQuantity)
+			{
+				qsl.clear();
+				qsl = { "ID",commodityID,"status","BANNED" };
+				i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
+				id.modifyOperation(i);
+			}
+			u.balance -= buyQuantity * price;
+			qsl.clear();
+			qsl = { "ID",u.ID,"balance",QString::number(u.balance,10,1) };
+			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+			userManager um;
+			user seller = um.getUserByID(sellerID);
+			seller.balance += buyQuantity + price;
+			qsl.clear();
+			qsl = { "ID",u.ID,"balance",QString::number(seller.balance,10,1) };
+			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+			id.modifyOperation(i);
+			orderManager om;
+			qsl.clear();
+			qsl = { om.getNextID(),commodityID,QString::number(price,10,1),QString::number(buyQuantity),qdt.currentDateTime().toString("yyyy-MM-dd"),sellerID,u.ID };
+			i = ig.generate(instructionGenerator::INSERT, instructionGenerator::ORDER, qsl);
+			id.modifyOperation(i);
+			QMessageBox::information(nullptr, "提示", "购买成功");
+		}
+	}
 }
 
 void userWindow::onBuyerViewAllPushButtonClicked()

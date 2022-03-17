@@ -21,6 +21,7 @@ public:
 	std::vector<user>search(QString qs, int type);
 	QString getNextID();
 	user getUser(QString username);
+	user getUserByID(QString ID);
 	bool getAndModify(int searchType, QString searchElement, int modityType, QString modifyElement);
 
 private:
