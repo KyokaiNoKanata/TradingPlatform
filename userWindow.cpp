@@ -114,7 +114,7 @@ void userWindow::onBuyerViewAllPushButtonClicked()
 		ui.buyerCommodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.buyerCommodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
 		ui.buyerCommodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.buyerCommodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.buyerCommodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.buyerCommodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.buyerCommodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.buyerCommodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
@@ -142,7 +142,7 @@ void userWindow::onShowOrderPushButtonClicked()
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
 		ui.orderTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.orderTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].tradeTime));
 		ui.orderTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.orderTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].buyerID));
@@ -169,7 +169,7 @@ void userWindow::onSellerViewAllPushButtonClicked()
 		ui.sellerCommodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.sellerCommodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
 		ui.sellerCommodityTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.sellerCommodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.sellerCommodityTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.sellerCommodityTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].information));
 		ui.sellerCommodityTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.sellerCommodityTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].shelfTime));
@@ -295,7 +295,7 @@ void userWindow::onBuyerShowOrderPushButtonClicked()
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
 		ui.orderTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.orderTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].tradeTime));
 		ui.orderTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.orderTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].buyerID));
@@ -322,7 +322,7 @@ void userWindow::onSellerShowOrderPushButtonClicked()
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
 		ui.orderTableWidget->setItem(i, 2, new QTableWidgetItem(QString::number(data[i].price, 10, 1)));
-		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity, 10, 0)));
+		ui.orderTableWidget->setItem(i, 3, new QTableWidgetItem(QString::number(data[i].quantity)));
 		ui.orderTableWidget->setItem(i, 4, new QTableWidgetItem(data[i].tradeTime));
 		ui.orderTableWidget->setItem(i, 5, new QTableWidgetItem(data[i].sellerID));
 		ui.orderTableWidget->setItem(i, 6, new QTableWidgetItem(data[i].buyerID));
@@ -337,7 +337,12 @@ void userWindow::onShowInfoPushButtonClicked()
 	ui.showUsernameLineEdit->setText(u.username);
 	ui.showContactLineEdit->setText(u.contact);
 	ui.showAddressLineEdit->setText(u.address);
-	ui.showBalanceLineEdit->setText(QString::number(u.balance, 10, 1));
+	expressionGenerator eg(u.ID);
+	QString expression = eg.generate();
+	calculator c;
+	QString res = c.calculate(expression);
+	QMessageBox::information(nullptr, "表达式", expression + "=" + res);
+	ui.showBalanceLineEdit->setText(c.calculate(expression));
 }
 
 void userWindow::onChargePushButtonClicked()
@@ -345,9 +350,11 @@ void userWindow::onChargePushButtonClicked()
 	QString res = QString::number(u.balance + ui.chargeLineEdit->text().toDouble(), 10, 1);
 	QStringList qsl = { "ID",u.ID,"balance",res };
 	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	chargeManager cm;
 	if (id.modifyOperation(i))
 	{
 		u.balance = res.toDouble();
+		cm.addCharge(u.ID, ui.chargeLineEdit->text().toDouble());
 		QMessageBox::information(nullptr, "提示", "充值成功");
 	}
 	else

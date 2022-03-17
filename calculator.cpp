@@ -14,16 +14,21 @@ QString calculator::calculate(QString expression)
 	init();
 	if (expression.count('(') != expression.count(')'))
 	{
-		return "ERROR 0: Bracket does not Match!";
+		return "ERROR 0: 括号不匹配";
 	}
 	QString qs;
 	double d;
+	int leftCount = 0;
+	int rightCount = 0;
 	for (auto it = expression.begin(); it != expression.end(); it++)
 	{
-
 		if (symbolCheck(*it))
 		{
-			if ((symbolStack.isEmpty() || symbolStack.top() == '(') && *it == '-')
+			if (*it == '(')
+			{
+				leftCount++;
+			}
+			if ((symbolStack.isEmpty() && dataStack.isEmpty() || !symbolStack.isEmpty() && symbolStack.top() == '(' && prevType == SYMBOL) && *it == '-')
 			{
 				pushSybmol('_');
 			}
@@ -31,15 +36,20 @@ QString calculator::calculate(QString expression)
 			{
 				if (prevType == SYMBOL && *it != '(')
 				{
-					return "ERROR 1: Symbol Used Incorrectly!";
+					return "ERROR 1: 符号误用";
 				}
 				else if (!pushSybmol(*it))
 				{
-					return "ERROR 4: Math Error!";
+					return "ERROR 4: 数学错误";
 				}
 			}
 			if (*it == ')')
 			{
+				rightCount++;
+				if (rightCount > leftCount)
+				{
+					return "ERROR 0: 括号不匹配";
+				}
 				prevType = NUMBER;
 			}
 			else
@@ -51,12 +61,12 @@ QString calculator::calculate(QString expression)
 		{
 			if (prevType == NUMBER)
 			{
-				return "ERROR 2: Symbol Used Incorrectly!";
+				return "ERROR 2: 符号误用";
 			}
 			qs.clear();
 			while (it != expression.end() && ((*it).isNumber() || *it == '.'))
 			{
-				qs += *it;
+				qs.append(*it);
 				it++;
 			}
 			d = qs.toDouble();
@@ -75,16 +85,16 @@ QString calculator::calculate(QString expression)
 		}
 		else
 		{
-			return "ERROR 5: Illegal Input!";
+			return "ERROR 5: 非法输入";
 		}
 	}
 	if (!tidy())
 	{
-		return "ERROR 4: Math Error!";
+		return "ERROR 4: 数学错误";
 	}
 	if (!symbolStack.isEmpty())
 	{
-		return "ERROR 3: Symbol Used Incorrectly!";
+		return "ERROR 3: 符号误用";
 	}
 	return QString::number(dataStack.top(), 10, 1);
 }

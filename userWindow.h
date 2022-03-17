@@ -7,6 +7,9 @@
 #include "newCommodityWidget.h"
 #include "instructionGenerator.h"
 #include "instructionDecoder.h"
+#include "expressionGenerator.h"
+#include "calculator.h"
+#include "chargeManager.h"
 
 class userWindow : public QMainWindow
 {
