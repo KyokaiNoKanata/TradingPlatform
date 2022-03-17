@@ -4,6 +4,7 @@
 #include "ui_userWindow.h"
 #include "login.h"
 #include "commodityModifyWidget.h"
+#include "newCommodityWidget.h"
 #include "instructionGenerator.h"
 #include "instructionDecoder.h"
 

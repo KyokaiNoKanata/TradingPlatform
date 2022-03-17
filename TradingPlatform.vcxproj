@@ -100,6 +100,7 @@
     <ClCompile Include="expressionGenerator.cpp" />
     <ClCompile Include="instructionDecoder.cpp" />
     <ClCompile Include="instructionGenerator.cpp" />
+    <ClCompile Include="newCommodityWidget.cpp" />
     <ClCompile Include="order.cpp" />
     <ClCompile Include="orderManager.cpp" />
     <ClCompile Include="registerWindow.cpp">
@@ -123,6 +124,7 @@
     <QtMoc Include="login.h" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="newCommodityWidget.ui" />
     <QtUic Include="registerWindow.ui" />
     <QtUic Include="userWindow.ui" />
   </ItemGroup>
@@ -137,6 +139,7 @@
     <ClInclude Include="expressionGenerator.h" />
     <ClInclude Include="instructionDecoder.h" />
     <ClInclude Include="instructionGenerator.h" />
+    <QtMoc Include="newCommodityWidget.h" />
     <ClInclude Include="order.h" />
     <ClInclude Include="orderManager.h" />
     <QtMoc Include="registerWindow.h" />

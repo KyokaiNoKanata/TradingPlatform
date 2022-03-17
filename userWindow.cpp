@@ -131,6 +131,8 @@ void userWindow::onSellerViewAllPushButtonClicked()
 
 void userWindow::onSellerNewCommodityPushButtonClicked()
 {
+	auto ncm = new newCommodityWidget(u.ID);
+	ncm->show();
 }
 
 void userWindow::onSellerModifyPushButtonClicked()

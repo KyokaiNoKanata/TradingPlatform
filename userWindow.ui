@@ -429,6 +429,14 @@
   <tabstop>changeUsernamePushButton</tabstop>
   <tabstop>changeContactPushButton</tabstop>
   <tabstop>changeAddressPushButton</tabstop>
+  <tabstop>showIDLineEdit</tabstop>
+  <tabstop>showUsernameLineEdit</tabstop>
+  <tabstop>showContactLineEdit</tabstop>
+  <tabstop>showAddressLineEdit</tabstop>
+  <tabstop>showBalanceLineEdit</tabstop>
+  <tabstop>chargeLineEdit</tabstop>
+  <tabstop>chargePushButton</tabstop>
+  <tabstop>showInfoPushButton</tabstop>
  </tabstops>
  <resources/>
  <connections>
