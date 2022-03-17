@@ -140,6 +140,22 @@ void userWindow::onSellerModifyPushButtonClicked()
 
 void userWindow::onSellerBanPushButtonClicked()
 {
+	int row = ui.sellerCommodityTableWidget->currentRow();
+	QString ID = ui.sellerCommodityTableWidget->item(row, 0)->text();
+	QStringList qsl;
+	qsl.append("ID");
+	qsl.append(ID);
+	qsl.append("status");
+	qsl.append("BANNED");
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
+	if (id.modifyOperation(i))
+	{
+		QMessageBox::information(nullptr, "提示", "下架成功");
+	}
+	else
+	{
+		QMessageBox::information(nullptr, "错误", "下架失败");
+	}
 }
 
 void userWindow::onLogOutPushButtonClicked()
