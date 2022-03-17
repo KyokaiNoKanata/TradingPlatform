@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>calculatorWindow</string>
+   <string>计算器接口</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
