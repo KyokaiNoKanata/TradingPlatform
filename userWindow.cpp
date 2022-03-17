@@ -131,7 +131,6 @@ void userWindow::onSellerViewAllPushButtonClicked()
 
 void userWindow::onSellerNewCommodityPushButtonClicked()
 {
-
 }
 
 void userWindow::onSellerModifyPushButtonClicked()
@@ -167,8 +166,13 @@ void userWindow::onLogOutPushButtonClicked()
 
 void userWindow::onChangeUsernamePushButtonClicked()
 {
-	userManager um;
-	if (um.changeUserInfo(u.ID, userManager::USERNAME, ui.newValueLineEdit->text()))
+	QStringList qsl;
+	qsl.append("ID");
+	qsl.append(u.ID);
+	qsl.append("username");
+	qsl.append(ui.newValueLineEdit->text());
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	if (id.modifyOperation(i))
 	{
 		QMessageBox::information(nullptr, "提示", "修改成功");
 		u.contact = ui.newValueLineEdit->text();
@@ -181,29 +185,39 @@ void userWindow::onChangeUsernamePushButtonClicked()
 
 void userWindow::onChangeContactPushButtonClicked()
 {
-	userManager um;
-	if (um.changeUserInfo(u.ID, userManager::CONTACT, ui.newValueLineEdit->text()))
+	QStringList qsl;
+	qsl.append("ID");
+	qsl.append(u.ID);
+	qsl.append("contact");
+	qsl.append(ui.newValueLineEdit->text());
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	if (id.modifyOperation(i))
 	{
 		QMessageBox::information(nullptr, "提示", "修改成功");
 		u.contact = ui.newValueLineEdit->text();
 	}
 	else
 	{
-		QMessageBox::information(nullptr, "错误", "修改失败");
+		QMessageBox::information(nullptr, "错误", "修改失败，存在同名用户");
 	}
 }
 
 void userWindow::onChangeAddressPushButtonClicked()
 {
-	userManager um;
-	if (um.changeUserInfo(u.ID, userManager::ADDRESS, ui.newValueLineEdit->text()))
+	QStringList qsl;
+	qsl.append("ID");
+	qsl.append(u.ID);
+	qsl.append("address");
+	qsl.append(ui.newValueLineEdit->text());
+	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
+	if (id.modifyOperation(i))
 	{
 		QMessageBox::information(nullptr, "提示", "修改成功");
-		u.address = ui.newValueLineEdit->text();
+		u.contact = ui.newValueLineEdit->text();
 	}
 	else
 	{
-		QMessageBox::information(nullptr, "错误", "修改失败");
+		QMessageBox::information(nullptr, "错误", "修改失败，存在同名用户");
 	}
 }
 
