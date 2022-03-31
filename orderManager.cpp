@@ -7,7 +7,6 @@ orderManager::orderManager()
 
 orderManager::~orderManager()
 {
-	writeFile();
 }
 
 void orderManager::readFile()

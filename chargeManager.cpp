@@ -7,7 +7,6 @@ chargeManager::chargeManager()
 
 chargeManager::~chargeManager()
 {
-	writeFile();
 }
 
 void chargeManager::addCharge(QString ID, double amount)

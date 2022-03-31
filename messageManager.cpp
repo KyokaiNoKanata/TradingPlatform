@@ -7,7 +7,6 @@ messageManager::messageManager()
 
 messageManager::~messageManager()
 {
-	writeFile();
 }
 
 void messageManager::addMessage(QString senderID, QString receiverID, QString content)

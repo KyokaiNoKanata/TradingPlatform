@@ -7,7 +7,6 @@ commodityManager::commodityManager()
 
 commodityManager::~commodityManager()
 {
-	writeFile();
 }
 
 void commodityManager::readFile()

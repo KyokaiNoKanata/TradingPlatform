@@ -7,7 +7,6 @@ userManager::userManager()
 
 userManager::~userManager()
 {
-	writeFile();
 }
 
 void userManager::readFile()
