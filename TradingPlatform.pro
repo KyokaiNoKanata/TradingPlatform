@@ -71,7 +71,6 @@ SOURCES += adminWindow.cpp \
            user.cpp \
            userManager.cpp \
            userWindow.cpp
-
-QT  +=  core    \
+QT +=   core \
         widgets \
-        gui \
+        gui
