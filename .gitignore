@@ -364,7 +364,7 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # data
-data/*.txt
+data/
 
 # linux compile
 *.o

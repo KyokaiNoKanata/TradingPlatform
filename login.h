@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include <QMessageBox>
+#include <QDir>
 #include "ui_login.h"
 #include "adminWindow.h"
 #include "registerWindow.h"
@@ -24,6 +25,7 @@ public slots:
 private:
 	Ui::loginClass ui;
 	userManager um;
+	QDir qd;
 	bool adminLogin();
 	bool userLogin();
 };

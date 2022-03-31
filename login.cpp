@@ -2,6 +2,7 @@
 
 login::login(QWidget *parent) : QMainWindow(parent)
 {
+	qd.mkdir("data");
 	ui.setupUi(this);
 }
 
