@@ -18,7 +18,6 @@ public:
 private:
 	QDateTime qdt;
 	std::vector<message> data;
-
 	void readFile();
 	void writeFile();
 };
