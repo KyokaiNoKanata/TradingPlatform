@@ -1,4 +1,4 @@
-#include "messageManager.h"
+ï»¿#include "messageManager.h"
 
 messageManager::messageManager()
 {
@@ -57,7 +57,7 @@ void messageManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "Ê±¼ä,·¢ËÍÕßID,½ÓÊÕÕßID,ÄÚÈÝ";
+	qts << "æ—¶é—´,å‘é€è€…ID,æŽ¥æ”¶è€…ID,å†…å®¹";
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		qts << '\n'
