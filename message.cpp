@@ -1,4 +1,4 @@
-#include "message.h"
+﻿#include "message.h"
 
 message::message()
 {
