@@ -57,7 +57,7 @@ void messageManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "时间,发送者ID,接收者ID,内容";
+	qts << QString("时间,发送者ID,接收者ID,内容");
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		qts << '\n'

@@ -59,7 +59,7 @@ void chargeManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "用户ID,充值金额,充值时间";
+	qts << QString("用户ID,充值金额,充值时间");
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		qts << '\n'

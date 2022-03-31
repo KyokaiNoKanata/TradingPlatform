@@ -7,7 +7,7 @@ orderManager::orderManager()
 
 orderManager::~orderManager()
 {
-	data.clear();
+	writeFile();
 }
 
 void orderManager::readFile()
@@ -36,7 +36,7 @@ void orderManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "订单ID,商品ID,交易单价,数量,交易时间,卖家ID,买家ID";
+	qts << QString("订单ID,商品ID,交易单价,数量,交易时间,卖家ID,买家ID");
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		qts << '\n'

@@ -7,8 +7,7 @@ userManager::userManager()
 
 userManager::~userManager()
 {
-	data.clear();
-	keyring.clear();
+	writeFile();
 }
 
 void userManager::readFile()
@@ -38,7 +37,7 @@ void userManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "用户ID,用户名,密码,联系方式,地址,钱包余额,用户状态";
+	qts << QString("用户ID,用户名,密码,联系方式,地址,钱包余额,用户状态");
 	QString temp;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{

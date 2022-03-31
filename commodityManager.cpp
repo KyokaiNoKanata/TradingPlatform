@@ -7,7 +7,7 @@ commodityManager::commodityManager()
 
 commodityManager::~commodityManager()
 {
-	data.clear();
+	writeFile();
 }
 
 void commodityManager::readFile()
@@ -36,7 +36,7 @@ void commodityManager::writeFile()
 	qf.open(QIODevice::WriteOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
-	qts << "商品ID,名称,价格,数量,描述,卖家ID,上架时间,商品状态";
+	qts << QString("商品ID,名称,价格,数量,描述,卖家ID,上架时间,商品状态");
 	QString temp;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
