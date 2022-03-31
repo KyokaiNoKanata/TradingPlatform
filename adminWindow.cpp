@@ -18,7 +18,7 @@ void adminWindow::onCommoditySearchPushButtonClicked()
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::COMMODITY, qsl);
 	std::vector<commodity> data = id.selectCommodity(i);
 	ui.commodityTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.commodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.commodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
@@ -58,7 +58,7 @@ void adminWindow::onCommodityViewAllPushButtonClicked()
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::COMMODITY, QStringList());
 	std::vector<commodity> data = id.selectCommodity(i);
 	ui.commodityTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.commodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.commodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
@@ -102,7 +102,7 @@ void adminWindow::onUserViewAllPushButtonClicked()
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::USER, QStringList());
 	std::vector<user> data = id.selectUser(i);
 	ui.userTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.userTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.userTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].username));
@@ -121,7 +121,7 @@ void adminWindow::onOrderViewAllPushButtonClicked()
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::ORDER, QStringList());
 	std::vector<order> data = id.selectOrder(i);
 	ui.orderTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));

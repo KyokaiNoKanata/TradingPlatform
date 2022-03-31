@@ -65,7 +65,7 @@ QString expressionGenerator::fromOrder()
 	for (auto it = si.begin(); it != si.end(); it++)
 	{
 		QString temp;
-		for (int i = 0; i < vd.size(); i++)
+		for (long unsigned int i = 0; i < vd.size(); i++)
 		{
 			if (vi[i] == *it)
 			{

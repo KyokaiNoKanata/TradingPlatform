@@ -18,10 +18,7 @@ int instructionDecoder::getType(QString qs)
 			return USER;
 		}
 	}
-	else
-	{
-		return BOOL;
-	}
+	return BOOL;
 }
 
 bool instructionDecoder::modifyOperation(QString qs)

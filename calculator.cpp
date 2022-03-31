@@ -28,7 +28,7 @@ QString calculator::calculate(QString expression)
 			{
 				leftCount++;
 			}
-			if ((symbolStack.isEmpty() && dataStack.isEmpty() || !symbolStack.isEmpty() && symbolStack.top() == '(' && prevType == SYMBOL) && *it == '-')
+			if (((symbolStack.isEmpty() && dataStack.isEmpty()) || ((!symbolStack.isEmpty() && symbolStack.top() == '(') && (prevType == SYMBOL) && *it == '-')))
 			{
 				pushSymbol('_');
 			}

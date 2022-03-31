@@ -27,7 +27,7 @@ void userWindow::onBuyerSearchPushButtonClicked()
 		}
 	}
 	ui.buyerCommodityTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.buyerCommodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.buyerCommodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
@@ -111,7 +111,7 @@ void userWindow::onBuyerViewAllPushButtonClicked()
 		}
 	}
 	ui.buyerCommodityTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.buyerCommodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.buyerCommodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
@@ -139,7 +139,7 @@ void userWindow::onShowOrderPushButtonClicked()
 		}
 	}
 	ui.orderTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
@@ -166,7 +166,7 @@ void userWindow::onSellerViewAllPushButtonClicked()
 		}
 	}
 	ui.sellerCommodityTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.sellerCommodityTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.sellerCommodityTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].name));
@@ -292,7 +292,7 @@ void userWindow::onBuyerShowOrderPushButtonClicked()
 		}
 	}
 	ui.orderTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
@@ -319,7 +319,7 @@ void userWindow::onSellerShowOrderPushButtonClicked()
 		}
 	}
 	ui.orderTableWidget->setRowCount(data.size());
-	for (int i = 0; i < data.size(); i++)
+	for (long unsigned int i = 0; i < data.size(); i++)
 	{
 		ui.orderTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].ID));
 		ui.orderTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].commodityID));
