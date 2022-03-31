@@ -12,7 +12,7 @@ chargeManager::~chargeManager()
 void chargeManager::addCharge(QString ID, double amount)
 {
 	readFile();
-	QStringList qsl = { ID,QString::number(amount,10,1),qdt.currentDateTime().toString("yyyy-MM-dd") };
+	QStringList qsl = {ID, QString::number(amount, 10, 1), qdt.currentDateTime().toString("yyyy-MM-dd")};
 	charge c(qsl);
 	data.push_back(c);
 	writeFile();
@@ -21,7 +21,7 @@ void chargeManager::addCharge(QString ID, double amount)
 std::vector<double> chargeManager::getData(QString ID)
 {
 	readFile();
-	std::vector<double>res;
+	std::vector<double> res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		if ((*it).userID == ID)
@@ -61,7 +61,8 @@ void chargeManager::writeFile()
 	qts << "用户ID,充值金额,充值时间";
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
-		qts << '\n' << (*it).userID << ',' << QString::number((*it).chargeAmount, 10, 1) << ',' << (*it).chargeTime;
+		qts << '\n'
+			<< (*it).userID << ',' << QString::number((*it).chargeAmount, 10, 1) << ',' << (*it).chargeTime;
 	}
 	qf.close();
 }

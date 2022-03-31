@@ -1,6 +1,6 @@
 ﻿#include "commodityModifyWidget.h"
 
-commodityModifyWidget::commodityModifyWidget(QString ID, QWidget* parent) :QWidget(parent)
+commodityModifyWidget::commodityModifyWidget(QString ID, QWidget *parent) : QWidget(parent)
 {
 	this->ID = ID;
 	ui.setupUi(this);

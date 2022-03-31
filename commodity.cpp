@@ -24,7 +24,7 @@ commodity::commodity(QString ID, QString name, double price, int quantity, QStri
 	this->status = status;
 }
 
-bool commodity::operator<(commodity b)const
+bool commodity::operator<(commodity b) const
 {
 	return this->ID < b.ID;
 }

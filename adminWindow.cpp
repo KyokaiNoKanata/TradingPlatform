@@ -1,6 +1,6 @@
 ﻿#include "adminWindow.h"
 
-adminWindow::adminWindow(QWidget* parent) :QMainWindow(parent)
+adminWindow::adminWindow(QWidget *parent) : QMainWindow(parent)
 {
 	ui.setupUi(this);
 }
@@ -11,12 +11,12 @@ adminWindow::~adminWindow()
 
 void adminWindow::onCommoditySearchPushButtonClicked()
 {
-	QString typeMap[] = { "ID" ,"name","price","quantity","information","sellerID","shelfTime","status" };
+	QString typeMap[] = {"ID", "name", "price", "quantity", "information", "sellerID", "shelfTime", "status"};
 	QStringList qsl;
 	qsl.append(typeMap[ui.commodityTableWidget->currentColumn()]);
 	qsl.append(ui.commoditySearchLineEdit->text());
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::COMMODITY, qsl);
-	std::vector<commodity>data = id.selectCommodity(i);
+	std::vector<commodity> data = id.selectCommodity(i);
 	ui.commodityTableWidget->setRowCount(data.size());
 	for (int i = 0; i < data.size(); i++)
 	{
@@ -56,7 +56,7 @@ void adminWindow::onCommodityBanPushButtonClicked()
 void adminWindow::onCommodityViewAllPushButtonClicked()
 {
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::COMMODITY, QStringList());
-	std::vector<commodity>data = id.selectCommodity(i);
+	std::vector<commodity> data = id.selectCommodity(i);
 	ui.commodityTableWidget->setRowCount(data.size());
 	for (int i = 0; i < data.size(); i++)
 	{
@@ -100,7 +100,7 @@ void adminWindow::onUserBanPushButtonClicked()
 void adminWindow::onUserViewAllPushButtonClicked()
 {
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::USER, QStringList());
-	std::vector<user>data = id.selectUser(i);
+	std::vector<user> data = id.selectUser(i);
 	ui.userTableWidget->setRowCount(data.size());
 	for (int i = 0; i < data.size(); i++)
 	{
@@ -119,7 +119,7 @@ void adminWindow::onUserViewAllPushButtonClicked()
 void adminWindow::onOrderViewAllPushButtonClicked()
 {
 	i = ig.generate(instructionGenerator::SELECT, instructionGenerator::ORDER, QStringList());
-	std::vector<order>data = id.selectOrder(i);
+	std::vector<order> data = id.selectOrder(i);
 	ui.orderTableWidget->setRowCount(data.size());
 	for (int i = 0; i < data.size(); i++)
 	{

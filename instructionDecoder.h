@@ -7,12 +7,18 @@
 class instructionDecoder
 {
 public:
-	enum returnType { BOOL, COMMODITY, ORDER, USER };
+	enum returnType
+	{
+		BOOL,
+		COMMODITY,
+		ORDER,
+		USER
+	};
 	int getType(QString qs);
 	bool modifyOperation(QString qs);
-	std::vector<commodity>selectCommodity(QString qs);
-	std::vector<order>selectOrder(QString qs);
-	std::vector<user>selectUser(QString qs);
+	std::vector<commodity> selectCommodity(QString qs);
+	std::vector<order> selectOrder(QString qs);
+	std::vector<user> selectUser(QString qs);
 
 private:
 	commodityManager cm;

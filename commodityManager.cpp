@@ -48,7 +48,8 @@ void commodityManager::writeFile()
 		{
 			temp = "已下架";
 		}
-		qts << '\n' << (*it).ID << ',' << (*it).name << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).information << ',' << (*it).sellerID << ',' << (*it).shelfTime << ',' << temp;
+		qts << '\n'
+			<< (*it).ID << ',' << (*it).name << ',' << QString::number((*it).price, 10, 1) << ',' << (*it).quantity << ',' << (*it).information << ',' << (*it).sellerID << ',' << (*it).shelfTime << ',' << temp;
 	}
 	qf.close();
 }
@@ -113,7 +114,7 @@ bool commodityManager::compare(commodity c, QString qs, int type)
 std::vector<commodity> commodityManager::search(QString qs, int type)
 {
 	readFile();
-	std::vector<commodity>res;
+	std::vector<commodity> res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		if (compare(*it, qs, type))

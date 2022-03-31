@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <QFile>
+#include <QIODevice>
 #include <QTextStream>
 #include <vector>
 #include <QDateTime>
@@ -12,11 +13,11 @@ public:
 	chargeManager();
 	~chargeManager();
 	void addCharge(QString ID, double amount);
-	std::vector<double>getData(QString ID);
+	std::vector<double> getData(QString ID);
 
 private:
 	QDateTime qdt;
-	std::vector<charge>data;
+	std::vector<charge> data;
 	void readFile();
 	void writeFile();
 };

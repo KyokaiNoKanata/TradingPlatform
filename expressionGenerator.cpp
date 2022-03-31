@@ -12,7 +12,7 @@ expressionGenerator::~expressionGenerator()
 QString expressionGenerator::generate()
 {
 	QString qs1 = fromCharge(),
-		qs2 = fromOrder();
+			qs2 = fromOrder();
 	if (!qs1.isEmpty() && !qs2.isEmpty() && qs2[0] != '-')
 	{
 		return qs1 + "+" + qs2;
@@ -29,7 +29,7 @@ QString expressionGenerator::generate()
 
 QString expressionGenerator::fromCharge()
 {
-	std::vector<double>data = cm.getData(ID);
+	std::vector<double> data = cm.getData(ID);
 	QString res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
@@ -45,17 +45,17 @@ QString expressionGenerator::fromCharge()
 QString expressionGenerator::fromOrder()
 {
 	QString res;
-	std::vector<double>vd;
-	std::vector<int>vi;
-	std::set<int>si;
-	std::vector<order>sellData = om.search(ID, orderManager::SELLER_ID);
+	std::vector<double> vd;
+	std::vector<int> vi;
+	std::set<int> si;
+	std::vector<order> sellData = om.search(ID, orderManager::SELLER_ID);
 	for (auto it = sellData.begin(); it != sellData.end(); it++)
 	{
 		vd.push_back((*it).price);
 		vi.push_back((*it).quantity);
 		si.insert((*it).quantity);
 	}
-	std::vector<order>buyData = om.search(ID, orderManager::BUYER_ID);
+	std::vector<order> buyData = om.search(ID, orderManager::BUYER_ID);
 	for (auto it = buyData.begin(); it != buyData.end(); it++)
 	{
 		vd.push_back(-(*it).price);

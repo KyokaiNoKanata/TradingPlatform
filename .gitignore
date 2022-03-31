@@ -365,3 +365,8 @@ FodyWeavers.xsd
 
 # data
 data/
+
+# compile
+*.o
+moc_*
+ui_*

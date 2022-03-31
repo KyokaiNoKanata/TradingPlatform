@@ -12,9 +12,13 @@ public:
 	QString calculate(QString expression);
 
 private:
-	QStack<QChar>symbolStack;
-	QStack<double>dataStack;
-	enum typeFlag { SYMBOL, NUMBER };
+	QStack<QChar> symbolStack;
+	QStack<double> dataStack;
+	enum typeFlag
+	{
+		SYMBOL,
+		NUMBER
+	};
 	bool prevType;
 	bool negFlag;
 	void init();
