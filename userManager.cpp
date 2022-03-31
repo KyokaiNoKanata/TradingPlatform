@@ -15,7 +15,7 @@ void userManager::readFile()
 {
 	data.clear();
 	QFile qf("data/user.txt");
-	qf.open(QIODeviceBase::ReadOnly);
+	qf.open(QIODevice::ReadOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
 	QString qs;
@@ -50,7 +50,8 @@ void userManager::writeFile()
 		{
 			temp = "封禁";
 		}
-		qts << '\n' << (*it).ID << ',' << (*it).username << ',' << (*it).password << ',' << (*it).contact << ',' << (*it).address << ',' << QString::number((*it).balance, 10, 1) << ',' << temp;
+		qts << '\n'
+			<< (*it).ID << ',' << (*it).username << ',' << (*it).password << ',' << (*it).contact << ',' << (*it).address << ',' << QString::number((*it).balance, 10, 1) << ',' << temp;
 	}
 	qf.close();
 }
@@ -202,7 +203,7 @@ bool userManager::compare(user u, QString qs, int type)
 std::vector<user> userManager::search(QString qs, int type)
 {
 	readFile();
-	std::vector<user>res;
+	std::vector<user> res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		if (compare(*it, qs, type))

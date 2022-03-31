@@ -14,7 +14,7 @@ void commodityManager::readFile()
 {
 	data.clear();
 	QFile qf("data/commodity.txt");
-	qf.open(QIODeviceBase::ReadOnly);
+	qf.open(QIODevice::ReadOnly);
 	QTextStream qts(&qf);
 	qts.setAutoDetectUnicode(true);
 	QString qs;

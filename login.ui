@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>189</width>
-    <height>179</height>
+    <width>201</width>
+    <height>218</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,16 +87,6 @@
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>189</width>
-     <height>17</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -117,9 +107,7 @@
   <tabstop>registerButton</tabstop>
   <tabstop>calculatorPushButton</tabstop>
  </tabstops>
- <resources>
-  <include location="login.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>loginButton</sender>
