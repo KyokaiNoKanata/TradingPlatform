@@ -13,7 +13,7 @@ chargeManager::~chargeManager()
 void chargeManager::addCharge(QString ID, double amount)
 {
 	readFile();
-	QStringList qsl = { ID, QString::number(amount, 10, 1), qdt.currentDateTime().toString("yyyy-MM-dd") };
+	QStringList qsl = {ID, QString::number(amount, 10, 1), qdt.currentDateTime().toString("yyyy-MM-dd")};
 	charge c(qsl);
 	data.push_back(c);
 	writeFile();

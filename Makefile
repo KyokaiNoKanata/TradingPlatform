@@ -16,7 +16,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -O2 -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I. -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
@@ -65,6 +65,8 @@ SOURCES       = adminWindow.cpp \
 		instructionGenerator.cpp \
 		login.cpp \
 		main.cpp \
+		message.cpp \
+		messageManager.cpp \
 		newCommodityWidget.cpp \
 		order.cpp \
 		orderManager.cpp \
@@ -91,6 +93,8 @@ OBJECTS       = adminWindow.o \
 		instructionGenerator.o \
 		login.o \
 		main.o \
+		message.o \
+		messageManager.o \
 		newCommodityWidget.o \
 		order.o \
 		orderManager.o \
@@ -192,6 +196,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		instructionDecoder.h \
 		instructionGenerator.h \
 		login.h \
+		message.h \
+		messageManager.h \
 		newCommodityWidget.h \
 		order.h \
 		orderManager.h \
@@ -218,6 +224,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		instructionGenerator.cpp \
 		login.cpp \
 		main.cpp \
+		message.cpp \
+		messageManager.cpp \
 		newCommodityWidget.cpp \
 		order.cpp \
 		orderManager.cpp \
@@ -404,8 +412,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents adminWindow.h calculator.h calculatorWindow.h charge.h chargeManager.h commodity.h commodityManager.h commodityModifyWidget.h expressionGenerator.h instructionDecoder.h instructionGenerator.h login.h newCommodityWidget.h order.h orderManager.h registerWindow.h ui_adminWindow.h ui_calculatorWindow.h ui_commodityModifyWidget.h ui_login.h ui_newCommodityWidget.h ui_registerWindow.h ui_userWindow.h user.h userManager.h userWindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents adminWindow.cpp calculator.cpp calculatorWindow.cpp charge.cpp chargeManager.cpp commodity.cpp commodityManager.cpp commodityModifyWidget.cpp expressionGenerator.cpp instructionDecoder.cpp instructionGenerator.cpp login.cpp main.cpp newCommodityWidget.cpp order.cpp orderManager.cpp registerWindow.cpp user.cpp userManager.cpp userWindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents adminWindow.h calculator.h calculatorWindow.h charge.h chargeManager.h commodity.h commodityManager.h commodityModifyWidget.h expressionGenerator.h instructionDecoder.h instructionGenerator.h login.h message.h messageManager.h newCommodityWidget.h order.h orderManager.h registerWindow.h ui_adminWindow.h ui_calculatorWindow.h ui_commodityModifyWidget.h ui_login.h ui_newCommodityWidget.h ui_registerWindow.h ui_userWindow.h user.h userManager.h userWindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents adminWindow.cpp calculator.cpp calculatorWindow.cpp charge.cpp chargeManager.cpp commodity.cpp commodityManager.cpp commodityModifyWidget.cpp expressionGenerator.cpp instructionDecoder.cpp instructionGenerator.cpp login.cpp main.cpp message.cpp messageManager.cpp newCommodityWidget.cpp order.cpp orderManager.cpp registerWindow.cpp user.cpp userManager.cpp userWindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents adminWindow.ui calculatorWindow.ui commodityModifyWidget.ui login.ui newCommodityWidget.ui registerWindow.ui userWindow.ui $(DISTDIR)/
 
 
@@ -436,7 +444,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
-	g++ -pipe -O2 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
+	g++ -pipe -O2 -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_adminWindow.cpp moc_calculatorWindow.cpp moc_commodityModifyWidget.cpp moc_login.cpp moc_newCommodityWidget.cpp moc_registerWindow.cpp moc_userWindow.cpp
 compiler_moc_header_clean:
@@ -503,6 +511,8 @@ moc_login.cpp: login.h \
 		expressionGenerator.h \
 		chargeManager.h \
 		charge.h \
+		messageManager.h \
+		message.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/mugi/TradingPlatform/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/mugi/TradingPlatform -I/home/mugi/TradingPlatform -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include login.h -o moc_login.cpp
@@ -562,6 +572,8 @@ moc_userWindow.cpp: userWindow.h \
 		expressionGenerator.h \
 		chargeManager.h \
 		charge.h \
+		messageManager.h \
+		message.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/mugi/TradingPlatform/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/mugi/TradingPlatform -I/home/mugi/TradingPlatform -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include userWindow.h -o moc_userWindow.cpp
@@ -701,7 +713,9 @@ login.o: login.cpp login.h \
 		ui_newCommodityWidget.h \
 		expressionGenerator.h \
 		chargeManager.h \
-		charge.h
+		charge.h \
+		messageManager.h \
+		message.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o login.o login.cpp
 
 main.o: main.cpp login.h \
@@ -729,8 +743,17 @@ main.o: main.cpp login.h \
 		ui_newCommodityWidget.h \
 		expressionGenerator.h \
 		chargeManager.h \
-		charge.h
+		charge.h \
+		messageManager.h \
+		message.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
+
+message.o: message.cpp message.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o message.o message.cpp
+
+messageManager.o: messageManager.cpp messageManager.h \
+		message.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o messageManager.o messageManager.cpp
 
 newCommodityWidget.o: newCommodityWidget.cpp newCommodityWidget.h \
 		instructionGenerator.h \
@@ -795,7 +818,9 @@ userWindow.o: userWindow.cpp userWindow.h \
 		ui_newCommodityWidget.h \
 		expressionGenerator.h \
 		chargeManager.h \
-		charge.h
+		charge.h \
+		messageManager.h \
+		message.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userWindow.o userWindow.cpp
 
 moc_adminWindow.o: moc_adminWindow.cpp 

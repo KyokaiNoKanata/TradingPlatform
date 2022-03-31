@@ -1,6 +1,6 @@
 ﻿#include "userWindow.h"
 
-userWindow::userWindow(user u, QWidget* parent) : QMainWindow(parent)
+userWindow::userWindow(user u, QWidget *parent) : QMainWindow(parent)
 {
 	this->u = u;
 	ui.setupUi(this);
@@ -12,7 +12,7 @@ userWindow::~userWindow()
 
 void userWindow::onBuyerSearchPushButtonClicked()
 {
-	QString typeMap[] = { "ID", "name", "price", "quantity", "information", "sellerID", "shelfTime", "status" };
+	QString typeMap[] = {"ID", "name", "price", "quantity", "information", "sellerID", "shelfTime", "status"};
 	QStringList qsl;
 	qsl.append(typeMap[ui.buyerCommodityTableWidget->currentColumn()]);
 	qsl.append(ui.buyerSearchLineEdit->text());
@@ -65,32 +65,32 @@ void userWindow::onBuyerBuyPushButtonClicked()
 		}
 		else
 		{
-			QStringList qsl = { "ID", commodityID, "quantity", QString::number(quantity - buyQuantity, 10, 0) };
+			QStringList qsl = {"ID", commodityID, "quantity", QString::number(quantity - buyQuantity, 10, 0)};
 			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
 			id.modifyOperation(i);
 			if (quantity == buyQuantity)
 			{
 				qsl.clear();
-				qsl = QStringList({ "ID", commodityID, "status", "BANNED" });
+				qsl = QStringList({"ID", commodityID, "status", "BANNED"});
 				i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::COMMODITY, qsl);
 				id.modifyOperation(i);
 			}
 			ui.buyerCommodityTableWidget->setItem(ui.buyerCommodityTableWidget->currentRow(), 3, new QTableWidgetItem(QString::number(quantity - buyQuantity)));
 			u.balance -= buyQuantity * price;
 			qsl.clear();
-			qsl = QStringList({ "ID", u.ID, "balance", QString::number(u.balance, 10, 1) });
+			qsl = QStringList({"ID", u.ID, "balance", QString::number(u.balance, 10, 1)});
 			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
 			id.modifyOperation(i);
 			userManager um;
 			user seller = um.getUserByID(sellerID);
 			seller.balance += buyQuantity + price;
 			qsl.clear();
-			qsl = QStringList({ "ID", seller.ID, "balance", QString::number(seller.balance, 10, 1) });
+			qsl = QStringList({"ID", seller.ID, "balance", QString::number(seller.balance, 10, 1)});
 			i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
 			id.modifyOperation(i);
 			orderManager om;
 			qsl.clear();
-			qsl = QStringList({ om.getNextID(), commodityID, QString::number(price, 10, 1), QString::number(buyQuantity), qdt.currentDateTime().toString("yyyy-MM-dd"), sellerID, u.ID });
+			qsl = QStringList({om.getNextID(), commodityID, QString::number(price, 10, 1), QString::number(buyQuantity), qdt.currentDateTime().toString("yyyy-MM-dd"), sellerID, u.ID});
 			i = ig.generate(instructionGenerator::INSERT, instructionGenerator::ORDER, qsl);
 			id.modifyOperation(i);
 			QMessageBox::information(nullptr, "提示", "购买成功");
@@ -350,7 +350,7 @@ void userWindow::onShowInfoPushButtonClicked()
 void userWindow::onChargePushButtonClicked()
 {
 	QString res = QString::number(u.balance + ui.chargeLineEdit->text().toDouble(), 10, 1);
-	QStringList qsl = { "ID", u.ID, "balance", res };
+	QStringList qsl = {"ID", u.ID, "balance", res};
 	i = ig.generate(instructionGenerator::UPDATE, instructionGenerator::USER, qsl);
 	chargeManager cm;
 	if (id.modifyOperation(i))
@@ -373,7 +373,7 @@ void userWindow::onSendMessagePushButtonClicked()
 
 void userWindow::onShowMessagePushButtonClicked()
 {
-	std::vector<message>data = mm.getMessage(u.ID);
+	std::vector<message> data = mm.getMessage(u.ID);
 	ui.messageTableWidget->setRowCount(data.size());
 	for (long unsigned int i = 0; i < data.size(); i++)
 	{

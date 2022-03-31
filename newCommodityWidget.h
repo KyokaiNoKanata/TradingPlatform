@@ -6,12 +6,12 @@
 #include "instructionDecoder.h"
 #include "ui_newCommodityWidget.h"
 
-class newCommodityWidget :public QWidget
+class newCommodityWidget : public QWidget
 {
 	Q_OBJECT
 
 public:
-	newCommodityWidget(QString ID, QWidget* parent = Q_NULLPTR);
+	newCommodityWidget(QString ID, QWidget *parent = Q_NULLPTR);
 	~newCommodityWidget();
 
 public slots:

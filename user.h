@@ -14,8 +14,12 @@ public:
 	QString password;
 	QString contact;
 	QString address;
-	enum statusFlag { NORMAL, BANNED };
+	enum statusFlag
+	{
+		NORMAL,
+		BANNED
+	};
 	double balance;
 	bool status;
-	bool operator<(const user& b)const;
+	bool operator<(const user &b) const;
 };

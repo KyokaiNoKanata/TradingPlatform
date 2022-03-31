@@ -20,7 +20,7 @@ void messageManager::addMessage(QString senderID, QString receiverID, QString co
 std::vector<message> messageManager::getMessage(QString ID)
 {
 	readFile();
-	std::vector<message>res;
+	std::vector<message> res;
 	for (auto it = data.begin(); it != data.end(); it++)
 	{
 		if ((*it).receiverID == ID)

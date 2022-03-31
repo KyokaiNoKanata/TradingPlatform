@@ -13,7 +13,7 @@ public:
 	messageManager();
 	~messageManager();
 	void addMessage(QString senderID, QString receiverID, QString content);
-	std::vector<message>getMessage(QString ID);
+	std::vector<message> getMessage(QString ID);
 
 private:
 	QDateTime qdt;
@@ -22,4 +22,3 @@ private:
 	void readFile();
 	void writeFile();
 };
-

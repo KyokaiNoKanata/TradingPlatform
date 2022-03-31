@@ -1,6 +1,6 @@
 ﻿#include "registerWindow.h"
 
-registerWindow::registerWindow(QWidget* parent) :QWidget(parent)
+registerWindow::registerWindow(QWidget *parent) : QWidget(parent)
 {
 	ui.setupUi(this);
 }
@@ -12,10 +12,10 @@ registerWindow::~registerWindow()
 void registerWindow::onRegisterButtonClicked()
 {
 	QString username = ui.usernameLineEdit->text(),
-		password = ui.passwordLineEdit->text(),
-		password_2 = ui.passwordLineEdit_2->text(),
-		contact = ui.contactLineEdit->text(),
-		address = ui.addressLineEdit->text();
+			password = ui.passwordLineEdit->text(),
+			password_2 = ui.passwordLineEdit_2->text(),
+			contact = ui.contactLineEdit->text(),
+			address = ui.addressLineEdit->text();
 	if (username.isEmpty())
 	{
 		QMessageBox::information(nullptr, "注册失败", "请输入用户名");
@@ -60,7 +60,7 @@ void registerWindow::onRegisterButtonClicked()
 	{
 		userManager um;
 		QString ID = um.getNextID();
-		QStringList qsl = { ID,username,password,contact,address,QString::number(0,10,1),"正常" };
+		QStringList qsl = {ID, username, password, contact, address, QString::number(0, 10, 1), "正常"};
 		i = ig.generate(instructionGenerator::INSERT, instructionGenerator::USER, qsl);
 		if (id.modifyOperation(i))
 		{

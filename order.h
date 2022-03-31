@@ -15,5 +15,5 @@ public:
 	QString tradeTime;
 	QString sellerID;
 	QString buyerID;
-	bool operator<(const order b)const;
+	bool operator<(const order b) const;
 };

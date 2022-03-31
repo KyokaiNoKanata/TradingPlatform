@@ -33,7 +33,7 @@ user::user(QString ID, QString username, QString password, QString contact, QStr
 	this->status = status;
 }
 
-bool user::operator<(const user& b)const
+bool user::operator<(const user &b) const
 {
 	return this->ID < b.ID;
 }

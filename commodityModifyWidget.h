@@ -11,7 +11,7 @@ class commodityModifyWidget : public QWidget
 	Q_OBJECT
 
 public:
-	commodityModifyWidget(QString ID, QWidget* parent = Q_NULLPTR);
+	commodityModifyWidget(QString ID, QWidget *parent = Q_NULLPTR);
 	~commodityModifyWidget();
 
 private slots:
