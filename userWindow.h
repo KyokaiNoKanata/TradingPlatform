@@ -10,6 +10,7 @@
 #include "expressionGenerator.h"
 #include "calculator.h"
 #include "chargeManager.h"
+#include "messageManager.h"
 
 class userWindow : public QMainWindow
 {
@@ -36,6 +37,8 @@ public slots:
 	void onSellerShowOrderPushButtonClicked();
 	void onShowInfoPushButtonClicked();
 	void onChargePushButtonClicked();
+	void onSendMessagePushButtonClicked();
+	void onShowMessagePushButtonClicked();
 
 private:
 	Ui::userWindow ui;
@@ -44,4 +47,5 @@ private:
 	QDateTime qdt;
 	instructionGenerator ig;
 	instructionDecoder id;
+	messageManager mm;
 };
