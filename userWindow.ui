@@ -21,7 +21,7 @@
        <enum>Qt::TabFocus</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>true</bool>
@@ -435,12 +435,12 @@
          <widget class="QTableWidget" name="messageTableWidget">
           <column>
            <property name="text">
-            <string>来源</string>
+            <string>时间</string>
            </property>
           </column>
           <column>
            <property name="text">
-            <string>时间</string>
+            <string>来源</string>
            </property>
           </column>
           <column>

@@ -1,6 +1,6 @@
 ﻿#include "calculatorWindow.h"
 
-calculatorWindow::calculatorWindow(QWidget *parent) : QWidget(parent)
+calculatorWindow::calculatorWindow(QWidget* parent) : QWidget(parent)
 {
 	ui.setupUi(this);
 }

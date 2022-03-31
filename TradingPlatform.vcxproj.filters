@@ -98,10 +98,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="message.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="messageManager.cpp">
-      <Filter>Generated Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -237,32 +237,11 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ui_adminWindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_calculatorWindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_commodityModifyWidget.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_login.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_newCommodityWidget.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_registerWindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ui_userWindow.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
     <ClInclude Include="message.h">
-      <Filter>Generated Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="messageManager.h">
-      <Filter>Generated Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

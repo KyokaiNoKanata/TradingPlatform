@@ -373,5 +373,14 @@ void userWindow::onSendMessagePushButtonClicked()
 
 void userWindow::onShowMessagePushButtonClicked()
 {
-	std::vector<message>data = mm.getMessage()
+	std::vector<message>data = mm.getMessage(u.ID);
+	ui.messageTableWidget->setRowCount(data.size());
+	for (long unsigned int i = 0; i < data.size(); i++)
+	{
+		ui.messageTableWidget->setItem(i, 0, new QTableWidgetItem(data[i].time));
+		ui.messageTableWidget->setItem(i, 1, new QTableWidgetItem(data[i].senderID));
+		ui.messageTableWidget->setItem(i, 2, new QTableWidgetItem(data[i].content));
+	}
+	ui.messageTableWidget->resizeColumnsToContents();
+	ui.messageTableWidget->resizeRowsToContents();
 }
